@@ -1,0 +1,1809 @@
+
+</head>
+<body>
+    <!-- Live Circuit Canvas -->
+    <canvas id="circuit-canvas"></canvas>
+
+    <!-- Sticky Navigation Header -->
+    <header class="header-nav" id="main-header">
+        <div class="container nav-wrapper">
+            <a href="#home" class="logo-block" onclick="navigateTo('home')">
+                <div class="logo-box">A</div>
+                <span>Atharva</span>
+            </a>
+            
+            <nav>
+                <ul class="menu-list" id="nav-menu">
+                    <li class="menu-item"><a href="#home" class="nav-link" id="link-home">Home</a></li>
+                    <li class="menu-item"><a href="#about" class="nav-link" id="link-about">About Me</a></li>
+                    <li class="menu-item"><a href="#learning" class="nav-link" id="link-learning">Learning</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="#project-overview" class="nav-link" id="project-dropdown-trigger">Project <span style="font-size:0.8rem">â–¼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#project-overview" class="dropdown-item" id="link-project-overview">Project Overview</a>
+                            <a href="#project-analysis" class="dropdown-item" id="link-project-analysis">Analysis & Requirements</a>
+                            <a href="#project-design" class="dropdown-item" id="link-project-design">System Design</a>
+                            <a href="#project-implementation" class="dropdown-item" id="link-project-implementation">Implementation</a>
+                            <a href="#project-testing" class="dropdown-item" id="link-project-testing">Testing</a>
+                        </div>
+                    </li>
+                    <li class="menu-item"><a href="#certification" class="nav-link" id="link-certification">Certification</a></li>
+                    <li class="menu-item"><a href="#reflections" class="nav-link" id="link-reflections">Reflections</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger-btn" id="menu-hamburger" aria-label="Toggle mobile navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Views Container -->
+    <main class="main-content container">
+
+        <!-- =========================================
+             PAGE 1: HOME PAGE
+             ========================================= -->
+        <section id="page-home" class="portfolio-page">
+            <div class="hero-layout">
+                <div class="hero-badge-box">
+                    <span class="pulse-core"></span>
+                    <span>Student Innovation Showcase</span>
+                </div>
+
+                <span class="greeting-text">Hi, I'm</span>
+                <h1 class="main-fullname"><span class="gradient-text">Atharva</span></h1>
+                
+                <h3 class="hero-subtitle-details">CS Engineering Student Â· Builder Â· Problem Solver</h3>
+                
+                <div class="hero-college-badge">
+                    KLE Technological University, Hubbali | 4th Semester | Computer Science
+                </div>
+                
+                <p class="hero-pitch-paragraph">
+                    I build things that work â€” from full-stack e-commerce platforms to real-time security dashboards. Currently in my 4th semester of BTech CS, turning classroom concepts into real deployable products.
+                </p>
+                
+                <div class="hero-actions-container">
+                    <a href="#about" class="btn-pill btn-gradient" onclick="navigateTo('about')">
+                        <span>About Me</span>
+                        <svg class="btn-arrow-svg" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+                    </a>
+                    <a href="#learning" class="btn-pill btn-outline" onclick="navigateTo('learning')">Learning Journey</a>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-section-row">
+                <div class="stat-badge-card">
+                    <div class="stat-number-label">4th</div>
+                    <div class="stat-label-text">Semester BTech</div>
+                </div>
+                <div class="stat-badge-card">
+                    <div class="stat-number-label" data-target="3">3</div>
+                    <div class="stat-label-text">Core Focus Areas</div>
+                </div>
+                <div class="stat-badge-card">
+                    <div class="stat-number-label" data-target="1">1</div>
+                    <div class="stat-label-text">Portfolio Case Study</div>
+                </div>
+                <div class="stat-badge-card">
+                    <div class="stat-number-label" data-target="5">5</div>
+                    <div class="stat-label-text">Portfolio Pages</div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PAGE 2: ABOUT ME PAGE
+             ========================================= -->
+        <section id="page-about" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">My Story</span>
+                <h2>About Me</h2>
+            </div>
+            
+            <div class="about-main-flex">
+                <div class="neon-card">
+                    <div class="about-summary-block">
+                        <h3>Atharva</h3>
+                        <p>BTech Computer Science</p>
+                    </div>
+                    
+                    <ul class="business-list">
+                        <li><strong>College:</strong> KLE Technological University, Hubbali</li>
+                        <li><strong>Semester:</strong> 4th BTech</li>
+                        <li><strong>Branch:</strong> Computer Science & Engineering</li>
+                    </ul>
+                </div>
+                
+                <div class="about-narrative-right">
+                    <p class="bio-text-para">
+                        I'm Atharva, a 4th-semester Computer Science student at KLE Technological University, Hubbali. I'm passionate about building software that solves real problems.
+                    </p>
+                    <p class="bio-text-para">
+                        I enjoy working across frontend interfaces, backend logic, system architecture, and clean documentation. I use this portfolio to show who I am, how I learn, and the work I build through separate project pages.
+                    </p>
+                    
+                    <!-- Interests -->
+                    <div style="margin: 2rem 0;">
+                        <h4 style="font-size:1.25rem; margin-bottom:1rem; color:var(--accent-cyan);">Core Technical Interests</h4>
+                        <div class="pills-group">
+                            <span class="tech-pill-badge">Full-Stack Development</span>
+                            <span class="tech-pill-badge">UI/UX Design</span>
+                            <span class="tech-pill-badge">System Architecture</span>
+                            <span class="tech-pill-badge">Product Thinking</span>
+                            <span class="tech-pill-badge">Open Source Engineering</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Development Team -->
+                    <div style="margin: 2rem 0;">
+                        <h4 style="font-size:1.25rem; margin-bottom:1rem; color:var(--accent-orange);">Project Collaboration Team</h4>
+                        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1rem;">
+                            Collaborating with peer builders to design, construct, and deploy real-world technical solutions:
+                        </p>
+                        <div class="team-pills-group">
+                            <span class="team-pill">Atharva</span>
+                            <span class="team-pill">Atharva</span>
+                            <span class="team-pill">Ashutosh</span>
+                            <span class="team-pill">Yashwant</span>
+                            <span class="team-pill">Anoosha</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Category Blocks -->
+            <div class="skills-section-block">
+                <h3 class="skills-block-title">Skills Inventory</h3>
+                
+                <div class="skills-asym-grid">
+                    <div class="neon-card skill-badge-category">
+                        <h4>Frontend Technologies</h4>
+                        <div class="skill-pill-container">
+                            <span class="skill-individual-badge">React.js</span>
+                            <span class="skill-individual-badge">Vite</span>
+                            <span class="skill-individual-badge">HTML5</span>
+                            <span class="skill-individual-badge">CSS3 Variables</span>
+                            <span class="skill-individual-badge">Flexbox & Grid</span>
+                            <span class="skill-individual-badge">JavaScript (ES6+)</span>
+                            <span class="skill-individual-badge">React Router</span>
+                        </div>
+                    </div>
+                    
+                    <div class="neon-card skill-badge-category">
+                        <h4>Backend & Databases</h4>
+                        <div class="skill-pill-container">
+                            <span class="skill-individual-badge">Node.js</span>
+                            <span class="skill-individual-badge">Express.js</span>
+                            <span class="skill-individual-badge">Cloud Databases</span>
+                            <span class="skill-individual-badge">Prisma ORM</span>
+                            <span class="skill-individual-badge">PostgreSQL</span>
+                            <span class="skill-individual-badge">REST API Design</span>
+                        </div>
+                    </div>
+
+                    <div class="neon-card skill-badge-category">
+                        <h4>Auth & Integration</h4>
+                        <div class="skill-pill-container">
+                            <span class="skill-individual-badge">JSON Web Tokens (JWT)</span>
+                            <span class="skill-individual-badge">OAuth Basics</span>
+                            <span class="skill-individual-badge">Passport.js</span>
+                            <span class="skill-individual-badge">React Query</span>
+                            <span class="skill-individual-badge">Axios Interceptors</span>
+                        </div>
+                    </div>
+
+                    <div class="neon-card skill-badge-category">
+                        <h4>Engineering Utilities</h4>
+                        <div class="skill-pill-container">
+                            <span class="skill-individual-badge">Git & GitHub</span>
+                            <span class="skill-individual-badge">VS Code Studio</span>
+                            <span class="skill-individual-badge">Postman Workspace</span>
+                            <span class="skill-individual-badge">NPM Packaging</span>
+                            <span class="skill-individual-badge">Sub-circuit Solvers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Timeline -->
+            <div class="skills-section-block">
+                <h3 class="skills-block-title">Education Journey</h3>
+                
+                <div class="edu-timeline-box">
+                    <div class="edu-node">
+                        <div class="edu-node-bullet"></div>
+                        <h4 class="edu-node-title">BTech in Computer Science & Engineering</h4>
+                        <div class="edu-node-subtitle">KLE Technological University, Hubbali</div>
+                        <div class="edu-node-date">2024 - Present (4th Semester)</div>
+                        <p>Focusing on Data Structures, Algorithms, Database Systems, Computer Organization, and Software Design methodologies.</p>
+                    </div>
+
+                    <div class="edu-node">
+                        <div class="edu-node-bullet"></div>
+                        <h4 class="edu-node-title">Pre-University Course (PUC)</h4>
+                        <div class="edu-node-subtitle">Chetan College</div>
+                        <div class="edu-node-date">2022 - 2024</div>
+                        <p>Specialization in PCMB / PCMC. Foundation coursework in mathematics, physics, and basic programming frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 3: LEARNING PAGE
+             ========================================= -->
+        <section id="page-learning" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Academic Growth</span>
+                <h2>Learning Journey</h2>
+            </div>
+            
+            <p class="learning-intro-para">
+                My learning journey combines formal university coursework with self-driven practice. I focus on turning concepts into clean interfaces, reliable logic, and well-documented systems.
+            </p>
+
+            <div class="learning-panel-column">
+                
+                <!-- Tab 3a -->
+                <div class="expandable-panel" id="panel-a">
+                    <div class="panel-header" onclick="togglePanel('a')">
+                        <div class="panel-header-title-box">
+                            <div class="panel-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                            </div>
+                            <h3>a. HTML & CSS</h3>
+                        </div>
+                        <svg class="panel-toggle-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    
+                    <div class="panel-body-content">
+                        <ul class="learning-items-list">
+                            <li>Mastered semantic layout tags ensuring accessible DOM mapping.</li>
+                            <li>Engineered highly dynamic CSS architectures utilizing structured variable maps (`--accent`, `--color-bg`).</li>
+                            <li>Authored fluid layout grids using advanced CSS Flexbox and Grid equations.</li>
+                            <li><strong>Applied in:</strong> Clean page layouts, responsive navigation patterns, and reusable interface sections.</li>
+                        </ul>
+
+                        <div class="learning-example-grid">
+                            <!-- Code block -->
+                            <div class="code-editor-mockup learning-code-box">
+                                <div class="editor-header-bar">
+                                    <div class="editor-dots">
+                                        <span class="editor-dot dot-red"></span>
+                                        <span class="editor-dot dot-yellow"></span>
+                                        <span class="editor-dot dot-green"></span>
+                                    </div>
+                                    <span class="editor-title">ProfileCard.html</span>
+                                </div>
+                                <pre class="editor-pre-content"><code class="editor-code-body"><span class="c-cm">&lt;!-- Semantic Structure &amp; Variables CSS --&gt;</span>
+<span class="c-kw">&lt;div</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-card"</span><span class="c-kw">&gt;</span>
+  <span class="c-kw">&lt;div</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-avatar"</span><span class="c-kw">&gt;</span>G<span class="c-kw">&lt;/div&gt;</span>
+  <span class="c-kw">&lt;h3</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-name"</span><span class="c-kw">&gt;</span>Atharva<span class="c-kw">&lt;/h3&gt;</span>
+  <span class="c-kw">&lt;span</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-role"</span><span class="c-kw">&gt;</span>CS Engineering Student<span class="c-kw">&lt;/span&gt;</span>
+  <span class="c-kw">&lt;div</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-badge-group"</span><span class="c-kw">&gt;</span>
+    <span class="c-kw">&lt;span</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-badge"</span><span class="c-kw">&gt;</span>HTML5<span class="c-kw">&lt;/span&gt;</span>
+    <span class="c-kw">&lt;span</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-badge"</span><span class="c-kw">&gt;</span>CSS Grid<span class="c-kw">&lt;/span&gt;</span>
+  <span class="c-kw">&lt;/div&gt;</span>
+<span class="c-kw">&lt;/div&gt;</span></code></pre>
+                            </div>
+                            <!-- Output Preview -->
+                            <div class="learning-output-box">
+                                <div class="learning-output-header">Live Output Browser Preview</div>
+                                <div class="learning-output-body">
+                                    <div class="live-preview-card">
+                                        <div class="live-preview-avatar">G</div>
+                                        <h3 class="live-preview-name">Atharva</h3>
+                                        <span class="live-preview-role">CS Engineering Student</span>
+                                        <div class="live-preview-badge-group">
+                                            <span class="live-preview-badge">HTML5</span>
+                                            <span class="live-preview-badge">CSS Grid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated Mockup Image -->
+                        <div class="learning-image-container">
+                            <img src="assets/html_css_mockup.png" alt="HTML and CSS visual mockup" class="learning-img">
+                            <div class="learning-image-title">UI Design Reference Prototype</div>
+                            <div class="learning-image-caption">Fidelity prototype representing component alignment, visual grids, and color spacing before implementation.</div>
+                        </div>
+                        
+                        <div class="panel-takeaway-card">
+                            <h5>Key Lesson</h5>
+                            <blockquote>"A well-structured CSS variable system saved me hours when redesigning the storefront."</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3b -->
+                <div class="expandable-panel" id="panel-b">
+                    <div class="panel-header" onclick="togglePanel('b')">
+                        <div class="panel-header-title-box">
+                            <div class="panel-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <h3>b. JavaScript</h3>
+                        </div>
+                        <svg class="panel-toggle-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    
+                    <div class="panel-body-content">
+                        <ul class="learning-items-list">
+                            <li>Advanced ES6+ paradigms: closure structures, array computations, map/filter algorithms.</li>
+                            <li>Asynchronous operations: Event loop cycles, promises, and optimized fetch models.</li>
+                            <li>Virtual representation: Custom schematic solver equations.</li>
+                            <li><strong>Applied in:</strong> Browser storage practice, filtering logic, and structured client-side routing.</li>
+                        </ul>
+
+                        <div class="learning-example-grid">
+                            <!-- Code block -->
+                            <div class="code-editor-mockup learning-code-box">
+                                <div class="editor-header-bar">
+                                    <div class="editor-dots">
+                                        <span class="editor-dot dot-red"></span>
+                                        <span class="editor-dot dot-yellow"></span>
+                                        <span class="editor-dot dot-green"></span>
+                                    </div>
+                                    <span class="editor-title">FilterEngine.js</span>
+                                </div>
+                                <pre class="editor-pre-content"><code class="editor-code-body"><span class="c-kw">const</span> <span class="c-vr">team</span> = [
+  { <span class="c-vr">name</span>: <span class="c-st">'Atharva'</span>, <span class="c-vr">role</span>: <span class="c-st">'Lead'</span> },
+  { <span class="c-vr">name</span>: <span class="c-st">'Atharva'</span>, <span class="c-vr">role</span>: <span class="c-st">'Sys'</span> }
+];
+
+<span class="c-cm">// Evaluates role parameter array</span>
+<span class="c-kw">const</span> <span class="c-vr">leads</span> = <span class="c-vr">team</span>.<span class="c-fn">filter</span>(
+  <span class="c-vr">member</span> =&gt; <span class="c-vr">member</span>.<span class="c-vr">role</span> === <span class="c-st">'Lead'</span>
+);
+
+<span class="c-vr">console</span>.<span class="c-fn">log</span>(<span class="c-st">'Match:'</span>, <span class="c-vr">leads</span>[<span class="c-st">0</span>].<span class="c-vr">name</span>);</code></pre>
+                            </div>
+                            <!-- Output Preview -->
+                            <div class="learning-output-box">
+                                <div class="learning-output-header">Live Output Console</div>
+                                <div class="learning-output-body" style="flex-direction: column;">
+                                    <div class="js-output-console" id="js-console-output">
+                                        <div style="color: var(--text-muted); font-style: italic;">Console ready. Click button below to run script.</div>
+                                    </div>
+                                    <button class="js-run-btn" onclick="runJavaScriptDemo()">Execute Script</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated Mockup Image -->
+                        <div class="learning-image-container">
+                            <img src="assets/js_logic_mockup.png" alt="JavaScript dynamic logic mockup" class="learning-img">
+                            <div class="learning-image-title">Runtime Pipeline & Event Loop</div>
+                            <div class="learning-image-caption">Visualization of standard async operations, processing callback tasks inside browser schedules.</div>
+                        </div>
+                        
+                        <div class="panel-takeaway-card">
+                            <h5>Key Lesson</h5>
+                            <blockquote>"Writing the product filter from scratch (instead of using a library) deepened my understanding of array methods enormously."</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3c -->
+                <div class="expandable-panel" id="panel-c">
+                    <div class="panel-header" onclick="togglePanel('c')">
+                        <div class="panel-header-title-box">
+                            <div class="panel-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <h3>c. Node.js & React</h3>
+                        </div>
+                        <svg class="panel-toggle-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    
+                    <div class="panel-body-content">
+                        <ul class="learning-items-list">
+                            <li>Modular components, state orchestration, custom state hooks, and routing handlers.</li>
+                            <li>REST API creation with Express routing, active middleware, and controller setups.</li>
+                            <li>Database connectors using ORM patterns and secure cloud storage concepts.</li>
+                            <li>OAuth frameworks and secure cookie-based session stores.</li>
+                            <li><strong>Applied in:</strong> Full-stack exercises that connect interface state, API routes, and database-backed records.</li>
+                        </ul>
+
+                        <div class="learning-example-grid">
+                            <!-- Code block -->
+                            <div class="code-editor-mockup learning-code-box">
+                                <div class="editor-header-bar">
+                                    <div class="editor-dots">
+                                        <span class="editor-dot dot-red"></span>
+                                        <span class="editor-dot dot-yellow"></span>
+                                        <span class="editor-dot dot-green"></span>
+                                    </div>
+                                    <span class="editor-title">InteractiveCounter.jsx</span>
+                                </div>
+                                <pre class="editor-pre-content"><code class="editor-code-body"><span class="c-kw">import</span> { <span class="c-vr">useState</span> } <span class="c-kw">from</span> <span class="c-st">'react'</span>;
+
+<span class="c-kw">export default function</span> <span class="c-fn">Counter</span>() {
+  <span class="c-kw">const</span> [<span class="c-vr">count</span>, <span class="c-vr">setCount</span>] = <span class="c-fn">useState</span>(<span class="c-st">0</span>);
+
+  <span class="c-kw">return</span> (
+    <span class="c-kw">&lt;div&gt;</span>
+      <span class="c-kw">&lt;h3&gt;</span>Value: {<span class="c-vr">count</span>}<span class="c-kw">&lt;/h3&gt;</span>
+      <span class="c-kw">&lt;button</span> <span class="c-vr">onClick</span>={<span class="c-vr">() =&gt; setCount</span>(<span class="c-vr">c =&gt; c + 1</span>)}<span class="c-kw">&gt;</span>+<span class="c-kw">&lt;/button&gt;</span>
+    <span class="c-kw">&lt;/div&gt;</span>
+  );
+}</code></pre>
+                            </div>
+                            <!-- Output Preview -->
+                            <div class="learning-output-box">
+                                <div class="learning-output-header">Live Rendered Component</div>
+                                <div class="learning-output-body">
+                                    <div class="react-counter-container">
+                                        <div style="font-size:0.75rem; text-transform:uppercase; color:var(--accent-orange); font-weight:700; letter-spacing:0.05em; margin-bottom:0.2rem;">React State Hook</div>
+                                        <div class="react-counter-val" id="react-counter-val">0</div>
+                                        <div class="react-counter-btn-row">
+                                            <button class="react-counter-btn" onclick="decrementReactCounter()">-</button>
+                                            <button class="react-counter-btn" onclick="incrementReactCounter()">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated Mockup Image -->
+                        <div class="learning-image-container">
+                            <img src="assets/react_node_mockup.png" alt="React components and Node route map" class="learning-img">
+                            <div class="learning-image-title">Fullstack Components & Routing</div>
+                            <div class="learning-image-caption">Architectural diagram detailing component states syncing with server routing controllers and backend structures.</div>
+                        </div>
+                        
+                        <div class="panel-takeaway-card">
+                            <h5>Key Lesson</h5>
+                            <blockquote>"Integrating server state caching with React Query completely simplified handling asynchronous state synchronization between my client and backend API."</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3d -->
+                <div class="expandable-panel" id="panel-d">
+                    <div class="panel-header" onclick="togglePanel('d')">
+                        <div class="panel-header-title-box">
+                            <div class="panel-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            </div>
+                            <h3>d. Structured Enquiry</h3>
+                        </div>
+                        <svg class="panel-toggle-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    
+                    <div class="panel-body-content">
+                        <ul class="learning-items-list">
+                            <li>Requirement discovery: Practiced turning real user needs into structured software workflows.</li>
+                            <li>Data organization: Practiced converting raw, inconsistent records into clean structured formats.</li>
+                            <li>Systems design: Modeled database relationships, entity maps, and testing protocols.</li>
+                            <li><strong>Applied in:</strong> Writing clearer requirements, diagrams, and testing notes for technical work.</li>
+                        </ul>
+                        
+                        <div class="panel-takeaway-card">
+                            <h5>Key Lesson</h5>
+                            <blockquote>"Bridging real physical catalog workflows with visual database schemes showed me how crucial upfront structural design is before code writing."</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 4: PROJECT OVERVIEW PAGE
+             ========================================= -->
+        <section id="page-project-overview" class="portfolio-page">
+            <div class="project-detail-hero">
+                <h3>Digitron Associates</h3>
+                <div class="tagline">CCTV & Security Solutions â€” Full-Stack E-Commerce Platform</div>
+                
+                <div class="pills-group" style="justify-content:center;">
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">React</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">Vite</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">Express.js</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">MongoDB</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">Prisma ORM</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">JWT</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">Google OAuth</span>
+                </div>
+
+                <img src="assets/project-hero.png" alt="Digitron Associates project preview" class="project-hero-image">
+            </div>
+
+            <div class="project-detail-container">
+                <div class="project-narrative">
+                    <div class="section-header">
+                        <span class="subtitle">Overview</span>
+                        <h2>What is Digitron Associates?</h2>
+                    </div>
+                    
+                    <p class="bio-text-para">
+                        <strong>Digitron Associates</strong> is a real-world e-commerce web application built for a CCTV and security solutions business based in Hubbali, Karnataka. The platform enables customers to browse 400+ security products across 12 categories, compare models, build packages, and contact the store â€” while an admin portal allows the business owner to manage inventory, products, and site configuration.
+                    </p>
+
+                    <h4 style="font-size:1.4rem; margin-top:2.5rem; margin-bottom:1rem; color:var(--accent-cyan)">Core System Capabilities</h4>
+                    
+                    <div class="core-features-bullet-list">
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>400+ Catalog Items</h5>
+                                <p>Optimized multi-filter layout to scan real-world security parts.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>Detailed Specs & Star Ratings</h5>
+                                <p>Comprehensive spec breakdowns, ratings, and related system parts.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>Bundle Package Builder</h5>
+                                <p>Custom setup calculators to build complete security arrays easily.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>Secure Merchant Center</h5>
+                                <p>Dashboard enabling complete CRUD product tracking and layout variables.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>Dual Auth Framework</h5>
+                                <p>Secure admin log via JWT, with smooth login for customers via Google OAuth.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>WhatsApp Contact Links</h5>
+                                <p>Floating trigger containing pre-filled text referring to dynamic products.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="neon-card business-details-card" style="height: fit-content;">
+                    <h4>Store Operations Summary</h4>
+                    <ul class="business-list">
+                        <li><strong>Store Name:</strong> Digitron Associates</li>
+                        <li><strong>Service Scope:</strong> CCTV & High-End Security Solutions</li>
+                        <li><strong>Store Address:</strong> Shop No. 12, Electronics Hub, Lamington Road, Hubbali, Karnataka â€” 580029</li>
+                        <li><strong>Working Hours:</strong> Monâ€“Sat: 9:00 AM â€“ 7:00 PM <br>Sunday: 10:00 AM â€“ 4:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div style="margin-top:4rem;">
+                <h3 style="font-size:1.8rem; margin-bottom:1rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">12 Catalog Categories</h3>
+                <p>Digitron Associates maps 400+ physical parts sorted in 12 key security divisions:</p>
+                
+                <div class="categories-grid-box">
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ“·</span>
+                        <span class="category-cell-name">Cameras</span>
+                        <span class="category-cell-count">167 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ–¥ï¸</span>
+                        <span class="category-cell-name">DVR</span>
+                        <span class="category-cell-count">32 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">âš™ï¸</span>
+                        <span class="category-cell-name">NVR</span>
+                        <span class="category-cell-count">28 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ”Œ</span>
+                        <span class="category-cell-name">Cables & Connectors</span>
+                        <span class="category-cell-count">70 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸŒ</span>
+                        <span class="category-cell-name">Networking</span>
+                        <span class="category-cell-count">35 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ’¾</span>
+                        <span class="category-cell-name">Storage</span>
+                        <span class="category-cell-count">52 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ”¨</span>
+                        <span class="category-cell-name">Mounts & Racks</span>
+                        <span class="category-cell-count">16 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">âš¡</span>
+                        <span class="category-cell-name">Power Supplies</span>
+                        <span class="category-cell-count">32 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ“º</span>
+                        <span class="category-cell-name">Displays</span>
+                        <span class="category-cell-count">15 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ› ï¸</span>
+                        <span class="category-cell-name">Services</span>
+                        <span class="category-cell-count">11 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ”‘</span>
+                        <span class="category-cell-name">Access Control</span>
+                        <span class="category-cell-count">11 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">ðŸ“¦</span>
+                        <span class="category-cell-name">Accessories</span>
+                        <span class="category-cell-count">18 Products</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diagrams Section -->
+            <div style="margin-top:4rem; margin-bottom:5rem;">
+                <h3 style="font-size:1.8rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Project Diagrams & Mockups</h3>
+                <p>The following architectural blueprints map the data patterns and flow maps of the e-commerce layout:</p>
+                
+                <div class="diagram-grid-layout">
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/architecture.png" alt="SecureVision architecture diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">System Architecture Blueprint</span>
+                        <span class="placeholder-subcaption">Layered view of client, application, external services, and data modules.</span>
+                    </div>
+
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/context-diagram.png" alt="SecureVision context diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">System Context Map</span>
+                        <span class="placeholder-subcaption">Main system interactions with customer, admin, database, WhatsApp, email, and catalogue services.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 5: ANALYSIS & REQUIREMENTS PAGE
+             ========================================= -->
+        <section id="page-project-analysis" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">System Engineering</span>
+                <h2>Analysis & Requirements</h2>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1rem;">Problem Statement</h3>
+            <p class="bio-text-para" style="font-size:1.15rem;">
+                Local CCTV businesses in Hubbali had no digital presence. Customers had to visit in person to know product availability and pricing. The owner managed a 400+ SKU inventory in an Excel sheet with no way to share it digitally.
+            </p>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-top:3rem; margin-bottom:1rem;">Stakeholder Taxonomy</h3>
+            <div class="stakeholders-row">
+                <div class="neon-card stakeholder-card">
+                    <span class="stakeholder-card-icon">ðŸ’¼</span>
+                    <h4>Business Owner</h4>
+                    <p>Needs direct inventory tracking, quick SKU adjustments, and visual layouts to capture local Hubbali leads.</p>
+                </div>
+                <div class="neon-card stakeholder-card">
+                    <span class="stakeholder-card-icon">ðŸ‘¤</span>
+                    <h4>End Customers</h4>
+                    <p>Demand fast catalog filtering, product specs, dynamic cart building, and quick ways to reach the merchant.</p>
+                </div>
+                <div class="neon-card stakeholder-card">
+                    <span class="stakeholder-card-icon">ðŸ”‘</span>
+                    <h4>Site Admin</h4>
+                    <p>Requires secure, access-controlled endpoints to execute catalog CRUD items and manage dynamic parameters.</p>
+                </div>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1rem;">Functional Specifications</h3>
+            <div class="glass-table-wrapper">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Target Functional Requirement</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FR1</td>
+                            <td>Browse 400+ products classified in 12 distinct category boards</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR2</td>
+                            <td>Filter options by brand, indoor/outdoor use, and camera resolutions</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR3</td>
+                            <td>Interactive product specs panel with user rating averages</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR4</td>
+                            <td>Cart tracker enabling customized packages calculation</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR5</td>
+                            <td>Protected Merchant Portal and complete CRUD products management</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR6</td>
+                            <td>Customer login integration utilizing secure Google OAuth credentials</td>
+                            <td><span class="priority-indicator priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR7</td>
+                            <td>Instant WhatsApp trigger sharing product specifications</td>
+                            <td><span class="priority-indicator priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR8</td>
+                            <td>Side-by-side comparison matrices mapping up to 3 individual items</td>
+                            <td><span class="priority-indicator priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR9</td>
+                            <td>Global parameters editable dynamically from merchant settings</td>
+                            <td><span class="priority-indicator priority-low">Low</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1rem;">Non-Functional Specifications</h3>
+            <div class="timeline-steps" style="margin-top:2rem; margin-bottom:4rem;">
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">âš¡ Performance</h4>
+                    <p>Initial paint of the product catalog should load in under 2 seconds using server caching strategies.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">ðŸ“ˆ Scalability</h4>
+                    <p>Architecture supports scaling to thousands of catalog records without affecting browser rendering speeds.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">ðŸ”’ Security</h4>
+                    <p>Protected REST controllers utilizing stateless JWT, crypt-hashed passwords, and structured CORS rules.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">ðŸ“± Usability</h4>
+                    <p>Responsive design prioritizing mobile viewports, using high contrast styles and accessible inputs.</p>
+                </div>
+            </div>
+
+            <!-- Analysis Diagram Placeholder -->
+            <div style="margin-bottom:5rem;">
+                <h3 style="font-size:1.6rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Requirements Diagram Workspace</h3>
+                <div class="diagram-placeholder-card has-image">
+                    <img src="assets/use-case.png" alt="SecureVision use case diagram" class="project-diagram-image">
+                    <span class="placeholder-headline">Use Case Diagram / Requirements Flow</span>
+                    <span class="placeholder-subcaption">Visitor and admin actions mapped to core requirements.</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 6: SYSTEM DESIGN PAGE
+             ========================================= -->
+        <section id="page-project-design" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Architectural Blueprint</span>
+                <h2>System Design</h2>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Architecture Block Map</h3>
+            <div class="architecture-grid">
+                <div class="arch-block-card">
+                    <div class="arch-block-title">Frontend Client</div>
+                    <p style="font-size:0.95rem;">React SPA, modular component state orchestration, Vite HMR, and Tailwind UI elements.</p>
+                </div>
+                <div class="arch-block-card">
+                    <div class="arch-block-title">Backend API</div>
+                    <p style="font-size:0.95rem;">REST API routing, Passport middleware controllers, and token routers.</p>
+                </div>
+                <div class="arch-block-card">
+                    <div class="arch-block-title">Prisma Connector</div>
+                    <p style="font-size:0.95rem;">Object-relational connector generating secure database queries.</p>
+                </div>
+                <div class="arch-block-card">
+                    <div class="arch-block-title">Database Storage</div>
+                    <p style="font-size:0.95rem;">MongoDB Atlas storing unstructured specs lists and inventory datasets.</p>
+                </div>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1rem;">Tech Stack Decision Rationale</h3>
+            <div class="glass-table-wrapper">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>Technology Choice</th>
+                            <th>Architectural Motivation & Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>React + Vite</strong></td>
+                            <td>Delivers rapid Hot Module Replacement (HMR), components encapsulation, and efficient DOM renders.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Express.js</strong></td>
+                            <td>Provides a lightweight, unopinionated routing layer to construct API responses rapidly.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MongoDB</strong></td>
+                            <td>Flexible document model seamlessly maps varied specifications of diverse security equipment.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prisma ORM</strong></td>
+                            <td>Type-safe query compilation, simple schema files, and automated database transitions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>React Query</strong></td>
+                            <td>Performs declarative background caching and avoids redundant client network fetch loops.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stateless JWT</strong></td>
+                            <td>Enables lightweight validation headers without demanding storage access operations on the server.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google OAuth 2.0</strong></td>
+                            <td>Provides quick sign-in capabilities, removing purchase friction for CCTV customers.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Database Collections -->
+            <div style="margin-top:4rem; margin-bottom:4rem;">
+                <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Database Collections & Fields</h3>
+                <div class="timeline-steps">
+                    <div class="neon-card">
+                        <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">ðŸ“ products</h4>
+                        <p style="font-size:0.95rem;">id, name, brand, category, specs (JSON), images, price, stock, ratings</p>
+                    </div>
+                    <div class="neon-card">
+                        <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">ðŸ“ reviews</h4>
+                        <p style="font-size:0.95rem;">productId, rating, comment, authorName, timestamp</p>
+                    </div>
+                    <div class="neon-card">
+                        <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">ðŸ“ users</h4>
+                        <p style="font-size:0.95rem;">email, googleId, name, role (Customer/Admin), joinedDate</p>
+                    </div>
+                    <div class="neon-card">
+                        <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">ðŸ“ bundles</h4>
+                        <p style="font-size:0.95rem;">name, products[], totalPrice, description, activeStatus</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Design Placeholders -->
+            <div style="margin-top:4rem; margin-bottom:5rem;">
+                <h3 style="font-size:1.6rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Structural Diagrams Workspace</h3>
+                
+                <div class="diagram-grid-layout">
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/architecture.png" alt="Layered architecture diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">Detailed Architecture Pipeline</span>
+                        <span class="placeholder-subcaption">System modules arranged by client, app, service, and data layers.</span>
+                    </div>
+
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/activity-diagram.png" alt="Activity diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">Activity Flow</span>
+                        <span class="placeholder-subcaption">Visitor, system, admin, and external-service workflow.</span>
+                    </div>
+
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/whatsapp-sequence.png" alt="WhatsApp integration sequence diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">WhatsApp Integration Sequence</span>
+                        <span class="placeholder-subcaption">Pre-filled enquiry flow from browser UI to WhatsApp.</span>
+                    </div>
+
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/repository-structure.jpeg" alt="Repository structure diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">Repository Structure</span>
+                        <span class="placeholder-subcaption">Frontend, backend, database, docs, and root-level structure.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 7: IMPLEMENTATION PAGE
+             ========================================= -->
+        <section id="page-project-implementation" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Development Log</span>
+                <h2>Implementation</h2>
+            </div>
+
+            <!-- Highlights -->
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Development Highlights</h3>
+            <div class="highlights-grid">
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.8rem;">ðŸ“¦ Optimized Filter Engine</h4>
+                    <p>Designed a custom Multi-Filter engine using React's `useMemo` that evaluates 400+ security parts instantly across multiple parameters â€” without importing bulky external library assets.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.8rem;">âš™ï¸ Admin Portal Operations</h4>
+                    <p>Engineered full CRUD logic allowing the store owner to add products, modify pricing, and alter core contact and operating hours details in real-time, instantly saving to MongoDB.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.8rem;">ðŸ“Š Data Migration Automation</h4>
+                    <p>Wrote an asynchronous Node.js utility that parsed unstructured product sheets (400+ SKU lines) and transformed the records into structured, database-compatible JSON records.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.8rem;">ðŸ’¬ Dynamic WhatsApp Linker</h4>
+                    <p>Programmed a float button that auto-generates custom texts, linking a client's specific model parameters to the store owner's chat dashboard.</p>
+                </div>
+            </div>
+
+            <!-- Code Editor Component -->
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:0.5rem;">Featured Code Snippet</h3>
+            <p>A look at the custom multi-filter solution powering the product catalog:</p>
+            
+            <div class="code-editor-mockup">
+                <div class="editor-header-bar">
+                    <div class="editor-dots">
+                        <span class="editor-dot dot-red"></span>
+                        <span class="editor-dot dot-yellow"></span>
+                        <span class="editor-dot dot-green"></span>
+                    </div>
+                    <span class="editor-title">ProductFilterEngine.js</span>
+                </div>
+                <pre class="editor-pre-content"><code class="editor-code-body"><span class="c-cm">// Custom multi-criteria evaluation routine (optimized for 400+ SKUs)</span>
+<span class="c-kw">const</span> <span class="c-vr">filteredProducts</span> = <span class="c-fn">useMemo</span>(() => {
+  <span class="c-kw">return</span> <span class="c-vr">products</span>.<span class="c-fn">filter</span>(<span class="c-vr">product</span> => {
+    <span class="c-kw">const</span> <span class="c-vr">matchesCategory</span> = !<span class="c-vr">filters</span>.<span class="c-vr">category</span> || <span class="c-vr">product</span>.<span class="c-vr">category</span> === <span class="c-vr">filters</span>.<span class="c-vr">category</span>;
+    <span class="c-kw">const</span> <span class="c-vr">matchesBrand</span>    = !<span class="c-vr">filters</span>.<span class="c-vr">brand</span>    || <span class="c-vr">product</span>.<span class="c-vr">brand</span> === <span class="c-vr">filters</span>.<span class="c-vr">brand</span>;
+    <span class="c-kw">const</span> <span class="c-vr">matchesType</span>     = !<span class="c-vr">filters</span>.<span class="c-vr">type</span>     || <span class="c-vr">product</span>.<span class="c-vr">type</span> === <span class="c-vr">filters</span>.<span class="c-vr">type</span>;
+    <span class="c-kw">const</span> <span class="c-vr">matchesResolution</span> = !<span class="c-vr">filters</span>.<span class="c-vr">res</span>    || <span class="c-vr">product</span>.<span class="c-vr">resolution</span> === <span class="c-vr">filters</span>.<span class="c-vr">res</span>;
+    
+    <span class="c-kw">return</span> <span class="c-vr">matchesCategory</span> && <span class="c-vr">matchesBrand</span> && <span class="c-vr">matchesType</span> && <span class="c-vr">matchesResolution</span>;
+  });
+}, [<span class="c-vr">products</span>, <span class="c-vr">filters</span>]);</code></pre>
+            </div>
+
+            <!-- Sprint History -->
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Sprint History</h3>
+            <div class="timeline-vertical">
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 1</span>
+                        <h4>Vite Configuration & Layout Mockups</h4>
+                        <p>Constructed the project architecture, set up the React client routing, and drafted initial mock viewports.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 2</span>
+                        <h4>Catalog Migration & Prisma Sync</h4>
+                        <p>Drafted raw database collections, structured Prisma database schema mapping, and executed seed scripts to load 400+ SKU records.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 3</span>
+                        <h4>Core Storefront & Multi-Filters Layout</h4>
+                        <p>Programmed product list matrices, filter bars, detailed spec overlays, and the dynamic sidebar search panels.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 4</span>
+                        <h4>Merchant CRUD Controllers & settings</h4>
+                        <p>Programmed security barriers and inventory panels, allowing complete CRUD editing of products.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 5</span>
+                        <h4>Session Gates & Dual Auth Hooks</h4>
+                        <p>Programmed secure JWT token structures for admin endpoints, and configured Google OAuth 2.0 customer hooks.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 6</span>
+                        <h4>Package Calculator & Review System</h4>
+                        <p>Programmed custom bundle configuration panels, comparison tables, and local review compilation fields.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 7</span>
+                        <h4>Load Testing & Server Launch</h4>
+                        <p>Performed system optimization checks, resolved viewport adjustments, and launched code targets on Vercel and Railway host lines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementation Screenshots Grid -->
+            <div style="margin-top:4rem; margin-bottom:5rem;">
+                <h3 style="font-size:1.6rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Production Platform Interface</h3>
+                <p style="margin-bottom:2rem; color:var(--text-muted);">
+                    Below are the high-fidelity user interface captures demonstrating the end-to-end functionality of the deployed e-commerce platform:
+                </p>
+                <div class="screenshot-grid">
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 112922.png" alt="Home Page Hero Section" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>1. Landing & Brand Identity</h5>
+                            <p>Premium dark-tech storefront hero section featuring security value proposition.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 112937.png" alt="CCTV Product Catalog" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>2. Structured Product Catalog</h5>
+                            <p>E-commerce grid listing curated CCTV models and peripheral hardware.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113004.png" alt="Product Filter & Search" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>3. Custom Multi-Criteria Filter</h5>
+                            <p>Dynamic client-side sorting and filtering by resolution, brand, and type.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113012.png" alt="Product Comparison Matrix" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>4. Model Comparison Engine</h5>
+                            <p>Side-by-side spec comparison tool for evaluating camera resolutions and features.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113026.png" alt="Shopping Cart & Enquiry" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>5. Shopping Cart & Enquiry Details</h5>
+                            <p>Itemized selection with dynamic price calculation and enquiry compilation.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113308.png" alt="WhatsApp Chat Redirection" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>6. WhatsApp Link Dispatch</h5>
+                            <p>Instant chat redirection populated with structured cart models for store query.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113321.png" alt="Admin Authentication Portal" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>7. Secure Admin Portal Gateway</h5>
+                            <p>Credential validation gate protecting access to merchant inventory management.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113347.png" alt="Admin Dashboard Overview" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>8. Merchant Operations Dashboard</h5>
+                            <p>Secure control center displaying inventory stats and catalog options.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113357.png" alt="Admin Product Inventory" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>9. Catalog Inventory Control</h5>
+                            <p>Add, edit, or archive operations directly linked to the application database.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113405.png" alt="Admin Product Editor" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>10. Dynamic Product Specification Editor</h5>
+                            <p>Granular form interface for tweaking individual camera configurations.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113413.png" alt="Product Review Interface" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>11. User Feedback & Reviews</h5>
+                            <p>Interactive ratings system for logging verified user product evaluations.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113422.png" alt="Bundle Package Builder" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>12. Security Bundle Configurator</h5>
+                            <p>Pre-packaged security system setups matching typical store customer budgets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 8: TESTING PAGE
+             ========================================= -->
+        <section id="page-project-testing" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">System Verification</span>
+                <h2>Testing & Diagnostics</h2>
+            </div>
+
+            <p class="bio-text-para">
+                Testing for Digitron Associates covered functional testing, API testing (Postman), and manual UI/UX testing across devices.
+            </p>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-top:2.5rem; margin-bottom:1rem;">Testing Log</h3>
+            
+            <div class="glass-table-wrapper">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Feature Tested</th>
+                            <th>Verification Steps</th>
+                            <th>Expected Behavior</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TC01</td>
+                            <td>Product Filter</td>
+                            <td>Filter by "Cameras" category</td>
+                            <td>Only camera products shown</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC02</td>
+                            <td>Admin Login</td>
+                            <td>Correct credentials</td>
+                            <td>JWT issued, admin dashboard visible</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC03</td>
+                            <td>Admin Login</td>
+                            <td>Wrong password</td>
+                            <td>401 Unauthorized error</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC04</td>
+                            <td>Google OAuth</td>
+                            <td>Click "Login with Google"</td>
+                            <td>Redirects to Google, returns user</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC05</td>
+                            <td>Cart</td>
+                            <td>Add product to cart</td>
+                            <td>Cart count increments, item appears</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC06</td>
+                            <td>Product Detail</td>
+                            <td>Navigate to product</td>
+                            <td>Specs, ratings, images load</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC07</td>
+                            <td>Compare</td>
+                            <td>Add 3 products to compare</td>
+                            <td>Side-by-side spec table shown</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC08</td>
+                            <td>Admin CRUD</td>
+                            <td>Edit product price</td>
+                            <td>New price reflected on product page</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC09</td>
+                            <td>Mobile Responsive</td>
+                            <td>Open on 375px viewport</td>
+                            <td>Navbar collapses, layout adjusts</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC10</td>
+                            <td>WhatsApp CTA</td>
+                            <td>Click WhatsApp button</td>
+                            <td>Opens WhatsApp with pre-filled message</td>
+                            <td><strong class="accent-lime-text">âœ… Pass</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Bugs and fixes -->
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Defect Management Log</h3>
+            <div class="bugs-grid">
+                <div class="neon-card bug-card">
+                    <span class="bug-card-icon">ðŸž</span>
+                    <h4>Filter State Retention Defect</h4>
+                    <p><strong>Bug:</strong> Active filter parameters were not resetting when switching categories, displaying blank cells.<br><strong>Solution:</strong> Embedded cleanup dispatch handlers inside React's `useEffect` hooks.</p>
+                </div>
+                <div class="neon-card bug-card">
+                    <span class="bug-card-icon">ðŸž</span>
+                    <h4>MongoDB Cold-Start Failure</h4>
+                    <p><strong>Bug:</strong> Server database connections would periodically timeout on cold environment starts.<br><strong>Solution:</strong> Appended optimized `serverSelectionTimeoutMS` variables inside database connection configurations.</p>
+                </div>
+                <div class="neon-card bug-card">
+                    <span class="bug-card-icon">ðŸž</span>
+                    <h4>JWT Expiry Unhandled Crash</h4>
+                    <p><strong>Bug:</strong> Admin authentication tokens expiring without notice caused raw network failure messages.<br><strong>Solution:</strong> Programmed Axios token interceptors executing an automatic routing to the login interface upon 401 returns.</p>
+                </div>
+            </div>
+
+            <!-- Diagnostics Placeholders -->
+            <div style="margin-top:4rem; margin-bottom:5rem;">
+                <h3 style="font-size:1.6rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Diagnostic Diagrams Workspace</h3>
+                <div class="diagram-grid-layout">
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/test-matrix-1.png" alt="Testing matrix part one" class="project-diagram-image">
+                        <span class="placeholder-headline">Testing Matrix - Catalogue & Bundles</span>
+                        <span class="placeholder-subcaption">Product display, image visibility, specifications, filters, and bundle checks.</span>
+                    </div>
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/test-matrix-2.png" alt="Testing matrix part two" class="project-diagram-image">
+                        <span class="placeholder-headline">Testing Matrix - Comparison & WhatsApp</span>
+                        <span class="placeholder-subcaption">Comparison, best-for tags, WhatsApp redirection, pre-filled enquiries, and detail page checks.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 9: CERTIFICATION PAGE
+             ========================================= -->
+        <section id="page-certification" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Milestones</span>
+                <h2>Certifications & Achievements</h2>
+            </div>
+            
+            <p class="bio-text-para">
+                I actively pursue technical certifications to validate my knowledge in cloud technologies, core programming, and modern engineering practices.
+            </p>
+
+            <div class="certificate-single-container" style="max-width: 800px; margin: 3rem auto; text-align: center;">
+                <div class="neon-card screenshot-card" onclick="openLightbox(this)" style="cursor: pointer; transition: transform 0.3s ease; display: block; overflow: hidden; border-radius: 16px;">
+                    <div class="screenshot-image-wrapper" style="overflow: hidden; border-radius: 12px 12px 0 0; background: #0f172a; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                        <img src="assets/certificate.png" alt="DevOps Basics for Everyone Certificate" class="screenshot-img" style="max-width: 100%; height: auto; max-height: 480px; object-fit: contain; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-info" style="padding: 1.5rem 2rem; text-align: left; background-color: var(--bg-card);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                            <h5 style="margin: 0; font-size: 1.4rem; font-family: var(--font-heading); color: var(--text-primary);">DevOps Basics for Everyone</h5>
+                            <span class="cert-status-badge status-completed" style="font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.8rem; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.05em; background-color: rgba(127, 255, 0, 0.12); color: var(--accent-lime); border: 1px solid rgba(127,255,0,0.25);">Completed</span>
+                        </div>
+                        <p class="provider" style="font-size: 1rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.8rem;">IBM (via edX)</p>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                            Verified professional certificate demonstrating fundamental competencies in DevOps concepts, Continuous Integration/Continuous Deployment (CI/CD) pipelines, containerization mechanics, agile development methodologies, and cloud-native application setups.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 10: REFLECTIONS PAGE
+             ========================================= -->
+        <section id="page-reflections" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Retrospective</span>
+                <h2>Key Reflections</h2>
+            </div>
+
+            <p class="learning-intro-para">
+                Building a complete project case study was one of the most challenging and rewarding parts of my engineering journey so far. It taught me how to think beyond code and communicate decisions clearly.
+            </p>
+
+            <div class="reflections-masonry">
+                
+                <div class="neon-card reflection-masonry-card">
+                    <div class="reflection-card-number">01</div>
+                    <h4 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-orange);">ðŸ¤ Collaborative Coding beats Solo Dev</h4>
+                    <p>Working in a team of five (Atharva, Ashutosh, Yashwant, Anoosha, and myself) taught me the value of delegation, alignment, and source control. Building different modules of the CCTV platform required clear interfaces and mutual trust.</p>
+                    <div class="reflection-quote-block">
+                        <p>"Software engineering is a team sport; code is only as clean as the team's communication."</p>
+                    </div>
+                </div>
+
+                <div class="neon-card reflection-masonry-card">
+                    <div class="reflection-card-number">02</div>
+                    <h4 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-orange);">ðŸ”Œ Bridging Frontend & Backend Logic</h4>
+                    <p>Connecting React state flows to an Express backend was a massive learning loop. Understanding how database queries, middleware security gates, and REST controllers interact has shifted my perspective to system-level thinking.</p>
+                    <div class="reflection-quote-block">
+                        <p>"An interface is just a window; the real magic happens in the data pipeline behind it."</p>
+                    </div>
+                </div>
+
+                <div class="neon-card reflection-masonry-card">
+                    <div class="reflection-card-number">03</div>
+                    <h4 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-orange);">ðŸ’¾ Seeding Workflows & Database Sync</h4>
+                    <p>Managing product seeding files containing over 400 lines of CCTV catalog components forced me to learn schema normalization, migration safety, and how to verify backend database connections early on.</p>
+                    <div class="reflection-quote-block">
+                        <p>"Design schemas for tomorrow's queries, but parse files for today's database seeds."</p>
+                    </div>
+                </div>
+
+                <div class="neon-card reflection-masonry-card" style="grid-column: span 2;">
+                    <div class="reflection-card-number">04</div>
+                    <h4 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-orange);">â±ï¸ Agile Sprints & Incremental Slices</h4>
+                    <p>Splitting our work into Sprints made the project highly manageable. We learned to ship incremental working features, debug them in parallel, and continuously review progress together during team standups.</p>
+                    <div class="reflection-quote-block">
+                        <p>"Sprints divide complex backlogs into measurable checkpoints of working software."</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-portfolio">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#home" class="footer-link-anchor" onclick="navigateTo('home')">Home</a></li>
+                <li><a href="#about" class="footer-link-anchor" onclick="navigateTo('about')">About Me</a></li>
+                <li><a href="#learning" class="footer-link-anchor" onclick="navigateTo('learning')">Learning</a></li>
+                <li><a href="#project-overview" class="footer-link-anchor" onclick="navigateTo('project-overview')">Project Overview</a></li>
+            </ul>
+            <p>Â© 2026 Atharva Â· KLE Technological University Â· CS Engineering</p>
+            <p style="font-size:0.8rem; margin-top:0.4rem; color:var(--text-muted);">Crafted with Vanilla Javascript & Bold tech-aesthetics.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/911234567890?text=Hi%20Atharva,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" class="whatsapp-floating-widget" aria-label="Quick Contact on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.747 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.632-1.023-5.105-2.887-6.97C16.508 1.968 14.037.943 11.41.942 5.972.942 1.548 5.363 1.545 10.796c-.002 1.764.482 3.486 1.398 5.015L1.97 21.037l5.209-1.365-.532-.518z"/>
+        </svg>
+    </a>
+
+    <!-- Back to Top Widget -->
+    <button id="back-to-top" class="back-to-top-widget" aria-label="Scroll back to top">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </button>
+
+    <!-- Core Scripts Router & Particle Canvas Background -->
+    <script>
+        /* =========================================
+           1. CLIENT-SIDE HASH ROUTING CONTROLLER
+           ========================================= */
+        const projectSubpages = ['project-overview', 'project-analysis', 'project-design', 'project-implementation', 'project-testing'];
+
+        function updateProjectSubnav(pageId) {
+            document.querySelectorAll('.project-subnav a').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + pageId);
+            });
+        }
+
+        function initProjectSubnav() {
+            const projectNavMarkup = `
+                <nav class="project-subnav" aria-label="Project page navigation">
+                    <a href="#project-overview">Overview</a>
+                    <a href="#project-analysis">Analysis</a>
+                    <a href="#project-design">System Design</a>
+                    <a href="#project-implementation">Implementation</a>
+                    <a href="#project-testing">Testing</a>
+                </nav>
+            `;
+
+            projectSubpages.forEach(pageId => {
+                const page = document.getElementById('page-' + pageId);
+                if (page && !page.querySelector('.project-subnav')) {
+                    page.insertAdjacentHTML('afterbegin', projectNavMarkup);
+                }
+            });
+        }
+
+        function setupHashLinks() {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', event => {
+                    const pageId = link.getAttribute('href').substring(1);
+                    const target = document.getElementById('page-' + pageId);
+
+                    if (target) {
+                        event.preventDefault();
+                        window.location.hash = pageId;
+                        navigateTo(pageId);
+                    }
+                });
+            });
+        }
+
+        function navigateTo(pageId) {
+            // Close mobile menu first if open
+            document.getElementById('nav-menu').classList.remove('mobile-open');
+            
+            // Hide all views
+            const pages = document.querySelectorAll('.portfolio-page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show active target
+            const activePage = document.getElementById('page-' + pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+
+            // Update navbar items
+            const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Mark active element
+            const activeLink = document.getElementById('link-' + pageId);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Handle Project Dropdown trigger highlighting
+            const projectTrigger = document.getElementById('project-dropdown-trigger');
+            if (projectSubpages.includes(pageId)) {
+                projectTrigger.classList.add('active');
+            } else {
+                projectTrigger.classList.remove('active');
+            }
+
+            // Scroll cleanly to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Trigger Count-Up stats if switching to home page
+            if (pageId === 'home') {
+                setTimeout(initCountUp, 300);
+            }
+
+            updateProjectSubnav(pageId);
+        }
+
+        // Router listener routing dynamic window hashes
+        function handleRouting() {
+            const hash = window.location.hash.substring(1);
+            const validPages = ['home', 'about', 'learning', 'project-overview', 'project-analysis', 'project-design', 'project-implementation', 'project-testing', 'certification', 'reflections'];
+            
+            if (validPages.includes(hash)) {
+                navigateTo(hash);
+            } else {
+                navigateTo('home');
+                window.location.hash = 'home';
+            }
+        }
+
+        window.addEventListener('hashchange', handleRouting);
+        window.addEventListener('DOMContentLoaded', () => {
+            initProjectSubnav();
+            setupHashLinks();
+            handleRouting();
+        });
+
+        /* =========================================
+           2. INTERACTIVE HEADER & MOBILE ACCENTS
+           ========================================= */
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            const topBtn = document.getElementById('back-to-top');
+            
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 400) {
+                topBtn.classList.add('visible');
+            } else {
+                topBtn.classList.remove('visible');
+            }
+        });
+
+        // Mobile Hamburger Toggle
+        const hamburger = document.getElementById('menu-hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('mobile-open');
+        });
+
+        // Scroll back to top trigger
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* =========================================
+           INTERACTIVE DEMOS FOR LEARNING PAGE
+           ========================================= */
+        function runJavaScriptDemo() {
+            const consoleBox = document.getElementById('js-console-output');
+            consoleBox.innerHTML = '';
+            
+            // Add lines mimicking compiler/execution
+            const lines = [
+                { text: '> Initializing compiler runtime...', type: 'info' },
+                { text: '> Array team loaded with 2 elements.', type: 'info' },
+                { text: '> Running team.filter(member => member.role === "Lead")...', type: 'info' },
+                { text: 'Match: Atharva', type: 'success' },
+                { text: 'Script exited successfully with status 0.', type: 'info' }
+            ];
+            
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    const lineEl = document.createElement('div');
+                    lineEl.className = 'console-line ' + (line.type === 'success' ? 'console-line-success' : line.type === 'info' ? 'console-line-info' : '');
+                    lineEl.innerText = line.text;
+                    consoleBox.appendChild(lineEl);
+                }, index * 400);
+            });
+        }
+        
+        let reactCounterStateVal = 0;
+        function incrementReactCounter() {
+            reactCounterStateVal++;
+            document.getElementById('react-counter-val').innerText = reactCounterStateVal;
+        }
+        function decrementReactCounter() {
+            reactCounterStateVal--;
+            document.getElementById('react-counter-val').innerText = reactCounterStateVal;
+        }
+
+        /* =========================================
+           3. INTERACTIVE ACCORDIONS (LEARNINGS)
+           ========================================= */
+        function togglePanel(panelId) {
+            const panel = document.getElementById('panel-' + panelId);
+            const activeStatus = panel.classList.contains('active');
+            
+            // Collapse all panels first
+            const allPanels = document.querySelectorAll('.expandable-panel');
+            allPanels.forEach(p => p.classList.remove('active'));
+            
+            // Expand clicked panel if it wasn't open
+            if (!activeStatus) {
+                panel.classList.add('active');
+            }
+        }
+
+        /* =========================================
+           4. VISUAL STATISTICS COUNT-UP EFFECT
+           ========================================= */
+        let countUpExecuted = false;
+        function initCountUp() {
+            if (countUpExecuted) return;
+            const stats = document.querySelectorAll('.stat-number-label[data-target]');
+            
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'), 10);
+                const isPlus = stat.innerText.includes('+');
+                let count = 0;
+                const increment = Math.ceil(target / 50);
+                const timer = setInterval(() => {
+                    count += increment;
+                    if (count >= target) {
+                        count = target;
+                        clearInterval(timer);
+                    }
+                    stat.innerText = count + (isPlus ? '+' : '');
+                }, 30);
+            });
+            countUpExecuted = true;
+        }
+
+        /* =========================================
+           5. INTERACTIVE SCHEMATIC CANVAS BACKGROUND
+           ========================================= */
+        const canvas = document.getElementById('circuit-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        class Node {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.baseX = x;
+                this.baseY = y;
+                this.radius = Math.random() * 2 + 1.5;
+                this.pulse = Math.random() * Math.PI;
+                this.speed = 0.02;
+            }
+
+            draw() {
+                this.pulse += this.speed;
+                const alpha = 0.15 + Math.sin(this.pulse) * 0.08;
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius + Math.sin(this.pulse) * 0.8, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 212, 255, ${alpha})`;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(0, 212, 255, 0.4)';
+                ctx.fill();
+                ctx.shadowBlur = 0; // Reset blur
+            }
+
+            update() {
+                // Subtle organic floating movement
+                this.x = this.baseX + Math.sin(this.pulse) * 4;
+                this.y = this.baseY + Math.cos(this.pulse) * 4;
+            }
+        }
+
+        const nodesList = [];
+        const maxNodes = 65;
+
+        // Generate grid-like nodes mirroring circuit points
+        for (let i = 0; i < maxNodes; i++) {
+            nodesList.push(new Node(
+                Math.random() * width,
+                Math.random() * height
+            ));
+        }
+
+        function drawConnections() {
+            ctx.strokeStyle = 'rgba(0, 212, 255, 0.035)';
+            ctx.lineWidth = 1;
+            
+            for (let i = 0; i < nodesList.length; i++) {
+                for (let j = i + 1; j < nodesList.length; j++) {
+                    const dist = Math.hypot(nodesList[i].x - nodesList[j].x, nodesList[i].y - nodesList[j].y);
+                    
+                    if (dist < 180) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodesList[i].x, nodesList[i].y);
+                        
+                        // Trace orthogonal line segments resembling PCB wires
+                        const midX = (nodesList[i].x + nodesList[j].x) / 2;
+                        ctx.lineTo(midX, nodesList[i].y);
+                        ctx.lineTo(midX, nodesList[j].y);
+                        ctx.lineTo(nodesList[j].x, nodesList[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateBgCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            
+            drawConnections();
+            
+            nodesList.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            
+            requestAnimationFrame(animateBgCanvas);
+        }
+
+        animateBgCanvas();
+
+        /* =========================================
+           6. INTERACTIVE SCREENSHOT LIGHTBOX
+           ========================================= */
+        window.openLightbox = function(element) {
+            const lightbox = document.getElementById('image-lightbox');
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            
+            const cardImg = element.querySelector('.screenshot-img');
+            const cardTitle = element.querySelector('.screenshot-info h5').innerText;
+            const cardDesc = element.querySelector('.screenshot-info p').innerText;
+
+            img.src = cardImg.src;
+            caption.innerHTML = `<span style="color:var(--accent-cyan); font-weight:700;">${cardTitle}</span> &middot; <span style="color:var(--text-secondary); font-size:1rem;">${cardDesc}</span>`;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Disable background scrolling
+        }
+
+        window.closeLightbox = function() {
+            const lightbox = document.getElementById('image-lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+    </script>
+
+    <!-- Lightbox Modal -->
+    <div id="image-lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged screenshot view">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+</body>
+</html>
+
+
+
+
+

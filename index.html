@@ -1,0 +1,2229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atharva | Engineering Portfolio</title>
+    <meta name="description" content="Academic and project portfolio of Atharva, Computer Science engineering student.">
+    
+    <!-- Google Fonts: Syne (Futuristic wide headings) and DM Sans (Polished body text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================== PROFESSIONAL DARK THEME - COMPLETE DESIGN SYSTEM ==================== */
+        
+        :root {
+            /* TYPOGRAPHY */
+            --font-heading: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            /* PRIMARY COLORS */
+            --accent-primary: #6366f1;
+            --accent-secondary: #ec4899;
+            --accent-tertiary: #f59e0b;
+            --accent-orange: #f97316;
+            --accent-cyan: #06b6d4;
+            --accent-lime: #22c55e;
+            
+            /* BACKGROUND COLORS */
+            --bg-base: #0f172a;
+            --bg-card: #1e293b;
+            --bg-navbar: rgba(15, 23, 42, 0.8);
+            
+            /* TEXT COLORS */
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            
+            /* BORDERS & EFFECTS */
+            --border-color: rgba(99, 102, 241, 0.2);
+            --border-glow: rgba(99, 102, 241, 0.4);
+            
+            /* TRANSITIONS */
+            --transition-smooth: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-fast: 0.2s ease;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            background: linear-gradient(135deg, #0d0d15 0%, #16213e 100%); 
+            color: var(--text-primary); 
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        #circuit-canvas { display: none; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-base); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-primary); border-radius: 4px; opacity: 0.6; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-secondary); opacity: 0.9; }
+        
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; letter-spacing: -0.02em; }
+        p { font-size: 1.05rem; color: var(--text-secondary); font-weight: 400; }
+        
+        .section-header { margin-bottom: 3.5rem; border-left: 5px solid var(--accent-primary); padding-left: 1.8rem; position: relative; }
+        .section-header h2 { font-size: 2.8rem; text-transform: uppercase; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-header .subtitle { color: var(--accent-tertiary); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; display: block; }
+        
+        .gradient-text { background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+        .accent-lime-text { color: var(--accent-tertiary); }
+        
+        /* ========== HEADER & NAV ========== */
+        .header-nav { position: fixed; top: 0; left: 0; width: 100%; height: 80px; z-index: 100; background: var(--bg-navbar); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); transition: all var(--transition-fast); }
+        .header-nav.scrolled { height: 70px; box-shadow: 0 10px 40px rgba(168, 85, 247, 0.15); }
+        
+        .nav-wrapper { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+        .logo-block { display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-heading); font-weight: 800; font-size: 1.4rem; color: var(--text-primary); text-decoration: none; cursor: pointer; }
+        .logo-box { width: 42px; height: 42px; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #fff; font-size: 1.1rem; box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+        
+        .menu-list { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .menu-item { position: relative; }
+        
+        .nav-link { font-size: 1rem; font-weight: 500; color: var(--text-secondary); text-decoration: none; padding: 0.6rem 0; transition: color var(--transition-fast); cursor: pointer; position: relative; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-primary); }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background-color: var(--accent-primary); transition: width var(--transition-fast); }
+        .nav-link.active::after, .nav-link:hover::after { width: 100%; }
+        
+        .dropdown { cursor: pointer; }
+        .dropdown-menu { position: absolute; top: calc(100% + 15px); left: 50%; transform: translateX(-50%) translateY(10px); background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; width: 230px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); opacity: 0; visibility: hidden; pointer-events: none; transition: all var(--transition-fast); padding: 0.8rem 0; z-index: 200; }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+        
+        .dropdown-item { display: block; padding: 0.6rem 1.5rem; color: var(--text-secondary); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: all var(--transition-fast); }
+        .dropdown-item:hover { color: var(--accent-primary); background-color: rgba(168, 85, 247, 0.1); padding-left: 1.8rem; }
+        
+        .hamburger-btn { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; }
+        .hamburger-btn span { width: 100%; height: 2px; background-color: var(--text-primary); border-radius: 2px; transition: all var(--transition-fast); }
+        
+        /* ========== BUTTONS ========== */
+        .btn-pill { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 2.4rem; border-radius: 8px; font-size: 1rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: all var(--transition-fast); gap: 0.6rem; border: 2px solid transparent; }
+        .btn-gradient { background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); color: #fff; box-shadow: 0 0 20px rgba(168, 85, 247, 0.3); }
+        .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(168, 85, 247, 0.5); }
+        .btn-outline { border-color: var(--accent-primary); color: var(--text-primary); background: transparent; }
+        .btn-outline:hover { background-color: rgba(168, 85, 247, 0.1); transform: translateY(-2px); }
+        .btn-arrow-svg { width: 16px; height: 16px; fill: currentColor; transition: transform var(--transition-fast); }
+        .btn-pill:hover .btn-arrow-svg { transform: translateX(4px); }
+        
+        /* ========== CARDS ========== */
+        .neon-card { background: linear-gradient(135deg, rgba(26, 26, 46, 0.6) 0%, rgba(37, 37, 65, 0.4) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); transition: all var(--transition-smooth); position: relative; overflow: hidden; display: flex; flex-direction: column; backdrop-filter: blur(10px); }
+        .neon-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, transparent 100%); opacity: 0; transition: opacity var(--transition-smooth); }
+        .neon-card:hover { transform: translateY(-8px); border-color: var(--accent-primary); box-shadow: 0 0 40px rgba(168, 85, 247, 0.25); }
+        .neon-card:hover::before { opacity: 1; }
+        
+        /* ========== MAIN ========== */
+        main.main-content { padding-top: 130px; min-height: calc(100vh - 180px); position: relative; z-index: 10; }
+        .portfolio-page { display: none; opacity: 0; transform: translateY(20px); transition: all var(--transition-smooth); }
+        .portfolio-page.active { display: block; opacity: 1; transform: translateY(0); animation: slideInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* ========== HERO ========== */
+        .hero-layout { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2rem 0 5rem; }
+        .hero-profile-photo { display: none; }
+        .hero-badge-box { display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%); border: 1px solid var(--accent-primary); padding: 0.6rem 1.5rem; border-radius: 8px; font-size: 0.85rem; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem; }
+        .pulse-core { width: 8px; height: 8px; background-color: var(--accent-primary); border-radius: 50%; position: relative; animation: navPulse 2s infinite; }
+        @keyframes navPulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2.5); opacity: 0; } }
+        
+        .greeting-text { font-size: 1.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .main-fullname { font-size: 4.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; }
+        .hero-subtitle-details { font-size: 1.6rem; color: var(--accent-tertiary); font-weight: 600; margin-bottom: 1.2rem; letter-spacing: -0.01em; }
+        .hero-college-badge { background: rgba(168, 85, 247, 0.08); border: 1px solid var(--accent-primary); padding: 0.6rem 1.8rem; border-radius: 8px; font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 2.2rem; display: inline-block; }
+        .hero-pitch-paragraph { max-width: 720px; font-size: 1.2rem; line-height: 1.7; margin: 0 auto 3rem; color: var(--text-secondary); }
+        .hero-actions-container { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-bottom: 6rem; }
+        
+        .stats-section-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; width: 100%; margin-bottom: 6rem; }
+        .stat-badge-card { background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); transition: all var(--transition-fast); }
+        .stat-badge-card:hover { border-color: var(--accent-primary); transform: translateY(-4px); }
+        .stat-number-label { font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 0.3rem; line-height: 1.1; }
+        .stat-label-text { font-size: 0.95rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+        
+        .featured-project-layout { width: 100%; margin-bottom: 6rem; }
+        .featured-header-card { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
+        .featured-badge-tag { background: var(--accent-tertiary); color: #000; padding: 0.4rem 1rem; border-radius: 6px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 1rem; }
+        .featured-title-text { font-size: 2.2rem; margin-bottom: 1rem; }
+        .pills-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 2rem; }
+        .tech-pill-badge { background: rgba(168, 85, 247, 0.1); border: 1px solid var(--accent-primary); color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 6px; transition: all var(--transition-fast); }
+        .tech-pill-badge:hover { border-color: var(--accent-secondary); color: var(--accent-secondary); background: rgba(236, 72, 153, 0.15); }
+        .project-quick-preview-image { width: 100%; height: 250px; background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%); border: 2px dashed var(--accent-primary); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; }
+        .project-preview-mock-icon { width: 50px; height: 50px; color: var(--accent-primary); opacity: 0.6; }
+        
+        /* ========== ABOUT ========== */
+        .about-main-flex { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: flex-start; margin-bottom: 5rem; }
+        .avatar-circle-gnd { width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 3.2rem; font-weight: 800; color: #fff; box-shadow: 0 0 40px rgba(168, 85, 247, 0.4); margin: 0 auto 1.5rem; position: relative; }
+        .avatar-circle-gnd::before { content: ''; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid var(--accent-primary); animation: spinCircle 20s linear infinite; }
+        @keyframes spinCircle { 100% { transform: rotate(360deg); } }
+        .avatar-caption-note { font-size: 0.85rem; color: var(--text-muted); text-align: center; display: block; margin-top: 0.8rem; font-style: italic; }
+        .profile-photo-card { display: none; }
+        
+        .about-summary-block { text-align: center; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem; }
+        .about-summary-block h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
+        .about-summary-block p { font-size: 0.95rem; color: var(--accent-primary); font-weight: 600; }
+        .bio-text-para { font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 2rem; }
+        
+        .skills-section-block { margin-top: 3.5rem; }
+        .skills-block-title { font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.6rem; }
+        .skills-asym-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+        .skill-badge-category { display: flex; flex-direction: column; gap: 0.8rem; }
+        .skill-badge-category h4 { font-size: 1.1rem; color: var(--accent-tertiary); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+        .skill-pill-container { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .skill-individual-badge { background: rgba(168, 85, 247, 0.08); border: 1px solid var(--accent-primary); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; color: var(--text-secondary); font-weight: 500; transition: all var(--transition-fast); }
+        .skill-individual-badge:hover { border-color: var(--accent-secondary); color: var(--accent-secondary); background: rgba(236, 72, 153, 0.12); transform: translateY(-2px); }
+        
+        /* ========== FOOTER ========== */
+        .footer-portfolio { background: linear-gradient(135deg, rgba(13, 13, 21, 0.8) 0%, rgba(26, 26, 46, 0.6) 100%); border-top: 1px solid var(--border-color); padding: 4rem 0; text-align: center; position: relative; z-index: 10; }
+        .footer-portfolio p { font-size: 0.95rem; color: var(--text-muted); }
+        .footer-links { display: flex; align-items: center; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 1.5rem; }
+        .footer-link-anchor { color: var(--text-secondary); font-size: 0.95rem; text-decoration: none; transition: color var(--transition-fast); }
+        .footer-link-anchor:hover { color: var(--accent-primary); }
+        
+        .whatsapp-floating-widget { position: fixed; bottom: 2.5rem; left: 2.5rem; width: 56px; height: 56px; background-color: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); color: #FFFFFF; cursor: pointer; z-index: 1000; transition: all var(--transition-fast); text-decoration: none; }
+        .whatsapp-floating-widget:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.7); }
+        .whatsapp-floating-widget svg { width: 28px; height: 28px; }
+        
+        .back-to-top-widget { position: fixed; bottom: 2.5rem; right: 2.5rem; width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); border: 1px solid var(--accent-primary); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer; z-index: 1000; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all var(--transition-fast); box-shadow: 0 0 20px rgba(168, 85, 247, 0.3); }
+        .back-to-top-widget.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top-widget:hover { box-shadow: 0 0 30px rgba(168, 85, 247, 0.5); }
+        .back-to-top-widget svg { width: 20px; height: 20px; }
+        
+        @media (max-width: 1024px) {
+            .main-fullname { font-size: 3.8rem; }
+            .stats-section-row { grid-template-columns: repeat(2, 1fr); }
+            .about-main-flex { grid-template-columns: 1fr; }
+            .skills-asym-grid { grid-template-columns: 1fr; }
+            .featured-header-card { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+            .hamburger-btn { display: flex; }
+            .menu-list { position: absolute; top: 80px; left: 0; width: 100%; background: var(--bg-card); border-bottom: 1px solid var(--border-color); flex-direction: column; padding: 2rem 1.5rem; gap: 1.5rem; opacity: 0; visibility: hidden; transform: translateY(-20px); transition: all var(--transition-smooth); }
+            .menu-list.mobile-open { opacity: 1; visibility: visible; transform: translateY(0); }
+            .main-fullname { font-size: 2.8rem; }
+            .stats-section-row { grid-template-columns: 1fr; }
+        }
+
+        /* ========== ADDITIONAL COMPONENTS ========== */
+        .business-list { list-style: none; margin: 0; padding: 0; }
+        .business-list li { padding: 0.6rem 0; color: var(--text-secondary); font-size: 0.95rem; border-bottom: 1px solid var(--border-color); }
+        .business-list li:last-child { border-bottom: none; }
+        .business-list strong { color: var(--accent-primary); }
+
+        .team-pills-group, .team-pill { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .team-pill { background: rgba(99, 102, 241, 0.1); border: 1px solid var(--accent-primary); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; color: var(--text-secondary); }
+
+        .edu-timeline-box { display: flex; flex-direction: column; gap: 2rem; }
+        .edu-node { padding-left: 2rem; position: relative; border-left: 2px solid var(--accent-primary); }
+        .edu-node-bullet { position: absolute; left: -9px; top: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--accent-primary); box-shadow: 0 0 10px rgba(99, 102, 241, 0.5); }
+        .edu-node-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--text-primary); }
+        .edu-node-subtitle { font-size: 0.9rem; color: var(--accent-primary); margin-bottom: 0.3rem; }
+        .edu-node-date { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.5rem; }
+        .edu-node p { font-size: 0.95rem; color: var(--text-secondary); }
+
+        .learning-intro-para { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; }
+        .learning-panel-column { display: flex; flex-direction: column; gap: 1rem; }
+        .expandable-panel { background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.5) 100%); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; transition: all var(--transition-fast); }
+        .expandable-panel.active { border-color: var(--accent-primary); }
+        .panel-header { padding: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: space-between; background: rgba(99, 102, 241, 0.05); transition: background var(--transition-fast); }
+        .panel-header:hover { background: rgba(99, 102, 241, 0.1); }
+        .panel-header-title-box { display: flex; align-items: center; gap: 1rem; flex: 1; }
+        .panel-icon-sphere { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+        .panel-icon-sphere svg { width: 18px; height: 18px; }
+        .panel-header h3 { font-size: 1.15rem; margin: 0; color: var(--text-primary); }
+        .panel-toggle-indicator { width: 20px; height: 20px; stroke: var(--accent-primary); transition: transform var(--transition-fast); }
+        .expandable-panel.active .panel-toggle-indicator { transform: rotate(180deg); }
+        .panel-body-content { padding: 2rem; max-height: 0; overflow: hidden; transition: max-height var(--transition-smooth); }
+        .expandable-panel.active .panel-body-content { max-height: 3000px; }
+        .learning-items-list { list-style: none; margin: 0 0 1.5rem 0; padding: 0; }
+        .learning-items-list li { padding: 0.6rem 0; color: var(--text-secondary); font-size: 0.95rem; }
+        .learning-items-list li::before { content: '→ '; color: var(--accent-primary); margin-right: 0.5rem; font-weight: 700; }
+
+        .learning-example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+        .code-editor-mockup { background: #0d1117; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); }
+        .editor-header-bar { background: #161b22; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.8rem; border-bottom: 1px solid var(--border-color); }
+        .editor-dots { display: flex; gap: 0.5rem; }
+        .editor-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red { background: #ff5f57; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #28c940; }
+        .editor-title { font-size: 0.85rem; color: var(--text-secondary); margin-left: auto; font-family: var(--font-body); }
+        .editor-pre-content { padding: 1rem; overflow-x: auto; }
+        .editor-code-body { font-size: 0.85rem; font-family: 'Monaco', 'Courier New', monospace; line-height: 1.6; color: #d4d4d4; }
+        .c-cm { color: #6a9955; }
+        .c-kw { color: #569cd6; }
+        .c-vr { color: #9cdcfe; }
+        .c-st { color: #ce9178; }
+        .c-fn { color: #dcdcaa; }
+
+        .learning-output-box { background: #1e1e1e; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+        .learning-output-header { background: #252526; padding: 0.8rem 1rem; font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+        .learning-output-body { padding: 1.5rem; display: flex; align-items: center; justify-content: center; min-height: 120px; background: #1e1e1e; }
+        .js-output-console { font-family: 'Monaco', monospace; font-size: 0.85rem; line-height: 1.6; width: 100%; }
+        .console-line { padding: 0.3rem 0; color: #888; }
+        .console-line-info { color: #569cd6; }
+        .console-line-success { color: #6a9955; font-weight: 700; }
+        .js-run-btn { background: var(--accent-primary); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 1rem; transition: all var(--transition-fast); }
+        .js-run-btn:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+
+        .learning-image-container { margin: 2rem 0; text-align: center; }
+        .learning-img { width: 100%; max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-card); }
+        .learning-image-title { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-top: 0.8rem; }
+        .learning-image-caption { font-size: 0.9rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+        .panel-takeaway-card { background: rgba(99, 102, 241, 0.1); border-left: 4px solid var(--accent-primary); padding: 1rem; border-radius: 6px; margin-top: 1rem; }
+        .panel-takeaway-card h5 { font-size: 0.9rem; color: var(--accent-primary); margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+        .panel-takeaway-card blockquote { font-style: italic; color: var(--text-secondary); margin: 0; padding: 0; }
+
+        .live-preview-card { background: rgba(99, 102, 241, 0.1); border: 1px solid var(--accent-primary); border-radius: 8px; padding: 1.5rem; text-align: center; }
+        .live-preview-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem; margin: 0 auto 0.8rem; }
+        .live-preview-name { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.3rem; }
+        .live-preview-role { font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 0.8rem; }
+        .live-preview-badge-group { display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
+        .live-preview-badge { background: var(--accent-primary); color: white; padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+
+        .react-counter-container { background: rgba(99, 102, 241, 0.1); border: 1px solid var(--accent-primary); border-radius: 8px; padding: 1.5rem; text-align: center; }
+        .react-counter-val { font-size: 2.4rem; font-weight: 800; color: var(--accent-primary); margin: 0.8rem 0; font-family: var(--font-heading); }
+        .react-counter-btn-row { display: flex; gap: 0.8rem; justify-content: center; }
+        .react-counter-btn { background: var(--accent-primary); color: white; border: none; width: 40px; height: 40px; border-radius: 6px; font-size: 1.2rem; cursor: pointer; font-weight: 700; transition: all var(--transition-fast); }
+        .react-counter-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(99, 102, 241, 0.5); }
+
+        /* ========== PROJECT PAGES STYLING ========== */
+        .project-detail-hero { text-align: center; margin-bottom: 3rem; }
+        .project-detail-hero h3 { font-size: 2.2rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .tagline { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .project-hero-image { width: 100%; height: 300px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%); border: 2px dashed var(--accent-primary); border-radius: 12px; object-fit: cover; margin-bottom: 2rem; }
+
+        .project-detail-container { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        .project-narrative { }
+        .core-features-bullet-list { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2rem; }
+        .feature-bullet-item { display: flex; gap: 1.2rem; }
+        .bullet-icon-sphere { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; }
+        .bullet-icon-sphere svg { width: 20px; height: 20px; }
+        .feature-bullet-text h5 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--text-primary); }
+        .feature-bullet-text p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .business-details-card { }
+        .business-details-card h4 { color: var(--accent-primary); margin-bottom: 1rem; font-size: 1.15rem; }
+
+        .categories-grid-box { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .category-cell { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.2rem; text-align: center; transition: all var(--transition-fast); }
+        .category-cell:hover { border-color: var(--accent-primary); transform: translateY(-4px); }
+        .category-cell-icon { font-size: 1.8rem; display: block; margin-bottom: 0.5rem; }
+        .category-cell-name { display: block; font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem; }
+        .category-cell-count { display: block; font-size: 0.85rem; color: var(--text-muted); }
+
+        .diagram-grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .diagram-placeholder-card { background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.5) 100%); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; transition: all var(--transition-fast); }
+        .diagram-placeholder-card:hover { border-color: var(--accent-primary); }
+        .diagram-placeholder-card.has-image { cursor: pointer; }
+        .project-diagram-image { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .placeholder-headline { display: block; padding: 1rem 1.5rem 0.4rem; font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+        .placeholder-subcaption { display: block; padding: 0 1.5rem 1.5rem; font-size: 0.85rem; color: var(--text-secondary); }
+
+        .stakeholders-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .stakeholder-card { text-align: center; }
+        .stakeholder-card-icon { font-size: 2.4rem; display: block; margin-bottom: 0.8rem; }
+        .stakeholder-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .stakeholder-card p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .glass-table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 2rem; }
+        .glass-table { width: 100%; border-collapse: collapse; background: rgba(30, 41, 59, 0.4); }
+        .glass-table thead { background: rgba(99, 102, 241, 0.15); }
+        .glass-table th { padding: 1rem; text-align: left; font-weight: 600; color: var(--accent-primary); border-bottom: 2px solid var(--border-color); }
+        .glass-table td { padding: 0.8rem 1rem; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
+        .glass-table tbody tr:hover { background: rgba(99, 102, 241, 0.08); }
+        .priority-indicator { padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+        .priority-high { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .priority-medium { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .priority-low { background: rgba(34, 197, 94, 0.15); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.3); }
+
+        .timeline-steps { display: flex; flex-direction: column; gap: 1rem; }
+        .timeline-vertical { display: flex; flex-direction: column; gap: 0; }
+        .timeline-milestone { display: flex; gap: 1.5rem; margin-bottom: 0; position: relative; }
+        .timeline-milestone-bullet { width: 16px; height: 16px; background: var(--accent-primary); border-radius: 50%; position: absolute; left: 0; top: 0.8rem; box-shadow: 0 0 10px rgba(99, 102, 241, 0.5); }
+        .timeline-milestone-content { padding-left: 2rem; padding-bottom: 1.5rem; flex: 1; }
+        .timeline-milestone-date { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--accent-tertiary); letter-spacing: 0.05em; }
+        .timeline-milestone-content h4 { font-size: 1.1rem; margin-bottom: 0.3rem; color: var(--text-primary); }
+        .timeline-milestone-content p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .architecture-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .arch-block-card { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; }
+        .arch-block-title { font-size: 1.1rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.6rem; }
+
+        .highlights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+
+        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .screenshot-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; cursor: pointer; transition: all var(--transition-fast); }
+        .screenshot-card:hover { border-color: var(--accent-primary); transform: translateY(-4px); box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+        .screenshot-image-wrapper { overflow: hidden; background: var(--bg-base); }
+        .screenshot-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .screenshot-info { padding: 1rem; }
+        .screenshot-info h5 { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; }
+        .screenshot-info p { font-size: 0.8rem; color: var(--text-muted); }
+
+        .bugs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .bug-card { }
+        .bug-card-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+        .bug-card h4 { color: var(--accent-orange); margin-bottom: 0.6rem; font-size: 1.05rem; }
+        .bug-card p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .reflections-masonry { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .reflection-masonry-card { position: relative; padding-top: 2.5rem; }
+        .reflection-card-number { position: absolute; top: 0; left: 0; font-size: 2.2rem; font-weight: 800; color: var(--accent-primary); opacity: 0.4; font-family: var(--font-heading); }
+        .reflection-masonry-card h4 { margin-bottom: 0.8rem; color: var(--text-primary); }
+        .reflection-quote-block { background: rgba(99, 102, 241, 0.1); border-left: 4px solid var(--accent-primary); padding: 1rem; border-radius: 6px; margin-top: 1rem; font-style: italic; color: var(--text-secondary); font-size: 0.95rem; }
+
+        .cert-status-badge { display: inline-block; }
+        .status-completed { background: rgba(34, 197, 94, 0.15) !important; color: #86efac !important; }
+
+        .project-subnav { display: flex; gap: 1.5rem; padding: 1.5rem 0 1rem 0; border-bottom: 1px solid var(--border-color); margin-bottom: 2rem; }
+        .project-subnav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color var(--transition-fast); font-size: 0.95rem; }
+        .project-subnav a:hover, .project-subnav a.active { color: var(--accent-primary); }
+
+        /* ========== LIGHTBOX MODAL ========== */
+        .lightbox-modal { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(2px); }
+        .lightbox-modal.active { display: flex; }
+        .lightbox-content { max-width: 85%; max-height: 85%; object-fit: contain; border-radius: 8px; }
+        .lightbox-caption { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.8); color: var(--text-primary); padding: 1rem 1.5rem; border-radius: 6px; font-size: 0.95rem; text-align: center; max-width: 70%; }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2.5rem; cursor: pointer; font-weight: 300; transition: color var(--transition-fast); }
+        .lightbox-close:hover { color: var(--accent-primary); }
+
+        @media (max-width: 1024px) {
+            .project-detail-container { grid-template-columns: 1fr; }
+            .diagram-grid-layout { grid-template-columns: 1fr; }
+            .stakeholders-row { grid-template-columns: repeat(2, 1fr); }
+            .categories-grid-box { grid-template-columns: repeat(3, 1fr); }
+            .architecture-grid { grid-template-columns: 1fr; }
+            .highlights-grid { grid-template-columns: 1fr; }
+            .reflections-masonry { grid-template-columns: 1fr; }
+            .learning-example-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .stakeholders-row { grid-template-columns: 1fr; }
+            .categories-grid-box { grid-template-columns: repeat(2, 1fr); }
+            .screenshot-grid { grid-template-columns: 1fr; }
+        }
+            </style>
+</head>
+<body>
+    <!-- Live Circuit Canvas -->
+    <canvas id="circuit-canvas"></canvas>
+
+    <!-- Sticky Navigation Header -->
+    <header class="header-nav" id="main-header">
+        <div class="container nav-wrapper">
+            <a href="#home" class="logo-block" onclick="navigateTo('home')">
+                <div class="logo-box">A</div>
+                <span>Atharva</span>
+            </a>
+            
+            <nav>
+                <ul class="menu-list" id="nav-menu">
+                    <li class="menu-item"><a href="#home" class="nav-link" id="link-home">Home</a></li>
+                    <li class="menu-item"><a href="#about" class="nav-link" id="link-about">About Me</a></li>
+                    <li class="menu-item"><a href="#learning" class="nav-link" id="link-learning">Learning</a></li>
+                    <li class="menu-item dropdown">
+                        <a href="#project-overview" class="nav-link" id="project-dropdown-trigger">Project <span style="font-size:0.8rem">▼</span></a>
+                        <div class="dropdown-menu">
+                            <a href="#project-overview" class="dropdown-item" id="link-project-overview">Project Overview</a>
+                            <a href="#project-analysis" class="dropdown-item" id="link-project-analysis">Analysis & Requirements</a>
+                            <a href="#project-design" class="dropdown-item" id="link-project-design">System Design</a>
+                            <a href="#project-implementation" class="dropdown-item" id="link-project-implementation">Implementation</a>
+                            <a href="#project-testing" class="dropdown-item" id="link-project-testing">Testing</a>
+                        </div>
+                    </li>
+                    <li class="menu-item"><a href="#certification" class="nav-link" id="link-certification">Certification</a></li>
+                    <li class="menu-item"><a href="#reflections" class="nav-link" id="link-reflections">Reflections</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger-btn" id="menu-hamburger" aria-label="Toggle mobile navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Views Container -->
+    <main class="main-content container">
+
+        <!-- =========================================
+             PAGE 1: HOME PAGE
+             ========================================= -->
+        <section id="page-home" class="portfolio-page">
+            <div class="hero-layout">
+                <div class="hero-badge-box">
+                    <span class="pulse-core"></span>
+                    <span>Student Innovation Showcase</span>
+                </div>
+
+                <span class="greeting-text">Hi, I'm</span>
+                <h1 class="main-fullname"><span class="gradient-text">Atharva</span></h1>
+                
+                <h3 class="hero-subtitle-details">CS Engineering Student · Builder · Problem Solver</h3>
+                
+                <div class="hero-college-badge">
+                    KLE Technological University, Hubbali | 4th Semester | Computer Science
+                </div>
+                
+                <p class="hero-pitch-paragraph">
+                    I build things that work — from full-stack e-commerce platforms to real-time security dashboards. Currently in my 4th semester of BTech CS, turning classroom concepts into real deployable products.
+                </p>
+                
+                <div class="hero-actions-container">
+                    <a href="#about" class="btn-pill btn-gradient" onclick="navigateTo('about')">
+                        <span>About Me</span>
+                        <svg class="btn-arrow-svg" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+                    </a>
+                    <a href="#learning" class="btn-pill btn-outline" onclick="navigateTo('learning')">Learning Journey</a>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="stats-section-row">
+                <div class="stat-badge-card">
+                    <div class="stat-number-label">4th</div>
+                    <div class="stat-label-text">Semester BTech</div>
+                </div>
+                <div class="stat-badge-card">
+                    <div class="stat-number-label" data-target="3">3</div>
+                    <div class="stat-label-text">Core Focus Areas</div>
+                </div>
+                <div class="stat-badge-card">
+                    <div class="stat-number-label" data-target="1">1</div>
+                    <div class="stat-label-text">Portfolio Case Study</div>
+                </div>
+                <div class="stat-badge-card">
+                    <div class="stat-number-label" data-target="5">5</div>
+                    <div class="stat-label-text">Portfolio Pages</div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PAGE 2: ABOUT ME PAGE
+             ========================================= -->
+        <section id="page-about" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">My Story</span>
+                <h2>About Me</h2>
+            </div>
+            
+            <div class="about-main-flex">
+                <div class="neon-card">
+                    <div class="about-summary-block">
+                        <h3>Atharva</h3>
+                        <p>BTech Computer Science</p>
+                    </div>
+                    
+                    <ul class="business-list">
+                        <li><strong>College:</strong> KLE Technological University, Hubbali</li>
+                        <li><strong>Semester:</strong> 4th BTech</li>
+                        <li><strong>Branch:</strong> Computer Science & Engineering</li>
+                    </ul>
+                </div>
+                
+                <div class="about-narrative-right">
+                    <p class="bio-text-para">
+                        I'm Atharva, a 4th-semester Computer Science student at KLE Technological University, Hubbali. I'm passionate about building software that solves real problems.
+                    </p>
+                    <p class="bio-text-para">
+                        I enjoy working across frontend interfaces, backend logic, system architecture, and clean documentation. I use this portfolio to show who I am, how I learn, and the work I build through separate project pages.
+                    </p>
+                    
+                    <!-- Interests -->
+                    <div style="margin: 2rem 0;">
+                        <h4 style="font-size:1.25rem; margin-bottom:1rem; color:var(--accent-cyan);">Core Technical Interests</h4>
+                        <div class="pills-group">
+                            <span class="tech-pill-badge">Full-Stack Development</span>
+                            <span class="tech-pill-badge">UI/UX Design</span>
+                            <span class="tech-pill-badge">System Architecture</span>
+                            <span class="tech-pill-badge">Product Thinking</span>
+                            <span class="tech-pill-badge">Open Source Engineering</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Development Team -->
+                    <div style="margin: 2rem 0;">
+                        <h4 style="font-size:1.25rem; margin-bottom:1rem; color:var(--accent-orange);">Project Collaboration Team</h4>
+                        <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:1rem;">
+                            Collaborating with peer builders to design, construct, and deploy real-world technical solutions:
+                        </p>
+                        <div class="team-pills-group">
+                            <span class="team-pill">Atharva</span>
+                            <span class="team-pill">Goureesh</span>
+                            <span class="team-pill">Ashutosh</span>
+                            <span class="team-pill">Yashwant</span>
+                            <span class="team-pill">Anoosha</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Category Blocks -->
+            <div class="skills-section-block">
+                <h3 class="skills-block-title">Skills Inventory</h3>
+                
+                <div class="skills-asym-grid">
+                    <div class="neon-card skill-badge-category">
+                        <h4>Frontend Technologies</h4>
+                        <div class="skill-pill-container">
+                            <span class="skill-individual-badge">React.js</span>
+                            <span class="skill-individual-badge">Vite</span>
+                            <span class="skill-individual-badge">HTML5</span>
+                            <span class="skill-individual-badge">CSS3 Variables</span>
+                            <span class="skill-individual-badge">Flexbox & Grid</span>
+                            <span class="skill-individual-badge">JavaScript (ES6+)</span>
+                            <span class="skill-individual-badge">React Router</span>
+                        </div>
+                    </div>
+                    
+                    <div class="neon-card skill-badge-category">
+                        <h4>Backend & Databases</h4>
+                        <div class="skill-pill-container">
+                            <span class="skill-individual-badge">Node.js</span>
+                            <span class="skill-individual-badge">Express.js</span>
+                            <span class="skill-individual-badge">Cloud Databases</span>
+                            <span class="skill-individual-badge">Prisma ORM</span>
+                            <span class="skill-individual-badge">PostgreSQL</span>
+                            <span class="skill-individual-badge">REST API Design</span>
+                        </div>
+                    </div>
+
+                    <div class="neon-card skill-badge-category">
+                        <h4>Auth & Integration</h4>
+                        <div class="skill-pill-container">
+                            <span class="skill-individual-badge">JSON Web Tokens (JWT)</span>
+                            <span class="skill-individual-badge">OAuth Basics</span>
+                            <span class="skill-individual-badge">Passport.js</span>
+                            <span class="skill-individual-badge">React Query</span>
+                            <span class="skill-individual-badge">Axios Interceptors</span>
+                        </div>
+                    </div>
+
+                    <div class="neon-card skill-badge-category">
+                        <h4>Engineering Utilities</h4>
+                        <div class="skill-pill-container">
+                            <span class="skill-individual-badge">Git & GitHub</span>
+                            <span class="skill-individual-badge">VS Code Studio</span>
+                            <span class="skill-individual-badge">Postman Workspace</span>
+                            <span class="skill-individual-badge">NPM Packaging</span>
+                            <span class="skill-individual-badge">Sub-circuit Solvers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Timeline -->
+            <div class="skills-section-block">
+                <h3 class="skills-block-title">Education Journey</h3>
+                
+                <div class="edu-timeline-box">
+                    <div class="edu-node">
+                        <div class="edu-node-bullet"></div>
+                        <h4 class="edu-node-title">BTech in Computer Science & Engineering</h4>
+                        <div class="edu-node-subtitle">KLE Technological University, Hubbali</div>
+                        <div class="edu-node-date">2024 - Present (4th Semester)</div>
+                        <p>Focusing on Data Structures, Algorithms, Database Systems, Computer Organization, and Software Design methodologies.</p>
+                    </div>
+
+                    <div class="edu-node">
+                        <div class="edu-node-bullet"></div>
+                        <h4 class="edu-node-title">Pre-University Course (PUC)</h4>
+                        <div class="edu-node-subtitle">Chetan College</div>
+                        <div class="edu-node-date">2022 - 2024</div>
+                        <p>Specialization in PCMB / PCMC. Foundation coursework in mathematics, physics, and basic programming frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 3: LEARNING PAGE
+             ========================================= -->
+        <section id="page-learning" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Academic Growth</span>
+                <h2>Learning Journey</h2>
+            </div>
+            
+            <p class="learning-intro-para">
+                My learning journey combines formal university coursework with self-driven practice. I focus on turning concepts into clean interfaces, reliable logic, and well-documented systems.
+            </p>
+
+            <div class="learning-panel-column">
+                
+                <!-- Tab 3a -->
+                <div class="expandable-panel" id="panel-a">
+                    <div class="panel-header" onclick="togglePanel('a')">
+                        <div class="panel-header-title-box">
+                            <div class="panel-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                            </div>
+                            <h3>a. HTML & CSS</h3>
+                        </div>
+                        <svg class="panel-toggle-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    
+                    <div class="panel-body-content">
+                        <ul class="learning-items-list">
+                            <li>Mastered semantic layout tags ensuring accessible DOM mapping.</li>
+                            <li>Engineered highly dynamic CSS architectures utilizing structured variable maps (`--accent`, `--color-bg`).</li>
+                            <li>Authored fluid layout grids using advanced CSS Flexbox and Grid equations.</li>
+                            <li><strong>Applied in:</strong> Clean page layouts, responsive navigation patterns, and reusable interface sections.</li>
+                        </ul>
+
+                        <div class="learning-example-grid">
+                            <!-- Code block -->
+                            <div class="code-editor-mockup learning-code-box">
+                                <div class="editor-header-bar">
+                                    <div class="editor-dots">
+                                        <span class="editor-dot dot-red"></span>
+                                        <span class="editor-dot dot-yellow"></span>
+                                        <span class="editor-dot dot-green"></span>
+                                    </div>
+                                    <span class="editor-title">ProfileCard.html</span>
+                                </div>
+                                <pre class="editor-pre-content"><code class="editor-code-body"><span class="c-cm">&lt;!-- Semantic Structure &amp; Variables CSS --&gt;</span>
+<span class="c-kw">&lt;div</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-card"</span><span class="c-kw">&gt;</span>
+  <span class="c-kw">&lt;div</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-avatar"</span><span class="c-kw">&gt;</span>G<span class="c-kw">&lt;/div&gt;</span>
+  <span class="c-kw">&lt;h3</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-name"</span><span class="c-kw">&gt;</span>Atharva<span class="c-kw">&lt;/h3&gt;</span>
+  <span class="c-kw">&lt;span</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-role"</span><span class="c-kw">&gt;</span>CS Engineering Student<span class="c-kw">&lt;/span&gt;</span>
+  <span class="c-kw">&lt;div</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-badge-group"</span><span class="c-kw">&gt;</span>
+    <span class="c-kw">&lt;span</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-badge"</span><span class="c-kw">&gt;</span>HTML5<span class="c-kw">&lt;/span&gt;</span>
+    <span class="c-kw">&lt;span</span> <span class="c-vr">class</span>=<span class="c-st">"live-preview-badge"</span><span class="c-kw">&gt;</span>CSS Grid<span class="c-kw">&lt;/span&gt;</span>
+  <span class="c-kw">&lt;/div&gt;</span>
+<span class="c-kw">&lt;/div&gt;</span></code></pre>
+                            </div>
+                            <!-- Output Preview -->
+                            <div class="learning-output-box">
+                                <div class="learning-output-header">Live Output Browser Preview</div>
+                                <div class="learning-output-body">
+                                    <div class="live-preview-card">
+                                        <div class="live-preview-avatar">G</div>
+                                        <h3 class="live-preview-name">Atharva</h3>
+                                        <span class="live-preview-role">CS Engineering Student</span>
+                                        <div class="live-preview-badge-group">
+                                            <span class="live-preview-badge">HTML5</span>
+                                            <span class="live-preview-badge">CSS Grid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated Mockup Image -->
+                        <div class="learning-image-container">
+                            <img src="assets/html_css_mockup.png" alt="HTML and CSS visual mockup" class="learning-img">
+                            <div class="learning-image-title">UI Design Reference Prototype</div>
+                            <div class="learning-image-caption">Fidelity prototype representing component alignment, visual grids, and color spacing before implementation.</div>
+                        </div>
+                        
+                        <div class="panel-takeaway-card">
+                            <h5>Key Lesson</h5>
+                            <blockquote>"A well-structured CSS variable system saved me hours when redesigning the storefront."</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3b -->
+                <div class="expandable-panel" id="panel-b">
+                    <div class="panel-header" onclick="togglePanel('b')">
+                        <div class="panel-header-title-box">
+                            <div class="panel-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <h3>b. JavaScript</h3>
+                        </div>
+                        <svg class="panel-toggle-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    
+                    <div class="panel-body-content">
+                        <ul class="learning-items-list">
+                            <li>Advanced ES6+ paradigms: closure structures, array computations, map/filter algorithms.</li>
+                            <li>Asynchronous operations: Event loop cycles, promises, and optimized fetch models.</li>
+                            <li>Virtual representation: Custom schematic solver equations.</li>
+                            <li><strong>Applied in:</strong> Browser storage practice, filtering logic, and structured client-side routing.</li>
+                        </ul>
+
+                        <div class="learning-example-grid">
+                            <!-- Code block -->
+                            <div class="code-editor-mockup learning-code-box">
+                                <div class="editor-header-bar">
+                                    <div class="editor-dots">
+                                        <span class="editor-dot dot-red"></span>
+                                        <span class="editor-dot dot-yellow"></span>
+                                        <span class="editor-dot dot-green"></span>
+                                    </div>
+                                    <span class="editor-title">FilterEngine.js</span>
+                                </div>
+                                <pre class="editor-pre-content"><code class="editor-code-body"><span class="c-kw">const</span> <span class="c-vr">team</span> = [
+  { <span class="c-vr">name</span>: <span class="c-st">'Atharva'</span>, <span class="c-vr">role</span>: <span class="c-st">'Lead'</span> },
+  { <span class="c-vr">name</span>: <span class="c-st">'Atharva'</span>, <span class="c-vr">role</span>: <span class="c-st">'Sys'</span> }
+];
+
+<span class="c-cm">// Evaluates role parameter array</span>
+<span class="c-kw">const</span> <span class="c-vr">leads</span> = <span class="c-vr">team</span>.<span class="c-fn">filter</span>(
+  <span class="c-vr">member</span> =&gt; <span class="c-vr">member</span>.<span class="c-vr">role</span> === <span class="c-st">'Lead'</span>
+);
+
+<span class="c-vr">console</span>.<span class="c-fn">log</span>(<span class="c-st">'Match:'</span>, <span class="c-vr">leads</span>[<span class="c-st">0</span>].<span class="c-vr">name</span>);</code></pre>
+                            </div>
+                            <!-- Output Preview -->
+                            <div class="learning-output-box">
+                                <div class="learning-output-header">Live Output Console</div>
+                                <div class="learning-output-body" style="flex-direction: column;">
+                                    <div class="js-output-console" id="js-console-output">
+                                        <div style="color: var(--text-muted); font-style: italic;">Console ready. Click button below to run script.</div>
+                                    </div>
+                                    <button class="js-run-btn" onclick="runJavaScriptDemo()">Execute Script</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated Mockup Image -->
+                        <div class="learning-image-container">
+                            <img src="assets/js_logic_mockup.png" alt="JavaScript dynamic logic mockup" class="learning-img">
+                            <div class="learning-image-title">Runtime Pipeline & Event Loop</div>
+                            <div class="learning-image-caption">Visualization of standard async operations, processing callback tasks inside browser schedules.</div>
+                        </div>
+                        
+                        <div class="panel-takeaway-card">
+                            <h5>Key Lesson</h5>
+                            <blockquote>"Writing the product filter from scratch (instead of using a library) deepened my understanding of array methods enormously."</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3c -->
+                <div class="expandable-panel" id="panel-c">
+                    <div class="panel-header" onclick="togglePanel('c')">
+                        <div class="panel-header-title-box">
+                            <div class="panel-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <h3>c. Node.js & React</h3>
+                        </div>
+                        <svg class="panel-toggle-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    
+                    <div class="panel-body-content">
+                        <ul class="learning-items-list">
+                            <li>Modular components, state orchestration, custom state hooks, and routing handlers.</li>
+                            <li>REST API creation with Express routing, active middleware, and controller setups.</li>
+                            <li>Database connectors using ORM patterns and secure cloud storage concepts.</li>
+                            <li>OAuth frameworks and secure cookie-based session stores.</li>
+                            <li><strong>Applied in:</strong> Full-stack exercises that connect interface state, API routes, and database-backed records.</li>
+                        </ul>
+
+                        <div class="learning-example-grid">
+                            <!-- Code block -->
+                            <div class="code-editor-mockup learning-code-box">
+                                <div class="editor-header-bar">
+                                    <div class="editor-dots">
+                                        <span class="editor-dot dot-red"></span>
+                                        <span class="editor-dot dot-yellow"></span>
+                                        <span class="editor-dot dot-green"></span>
+                                    </div>
+                                    <span class="editor-title">InteractiveCounter.jsx</span>
+                                </div>
+                                <pre class="editor-pre-content"><code class="editor-code-body"><span class="c-kw">import</span> { <span class="c-vr">useState</span> } <span class="c-kw">from</span> <span class="c-st">'react'</span>;
+
+<span class="c-kw">export default function</span> <span class="c-fn">Counter</span>() {
+  <span class="c-kw">const</span> [<span class="c-vr">count</span>, <span class="c-vr">setCount</span>] = <span class="c-fn">useState</span>(<span class="c-st">0</span>);
+
+  <span class="c-kw">return</span> (
+    <span class="c-kw">&lt;div&gt;</span>
+      <span class="c-kw">&lt;h3&gt;</span>Value: {<span class="c-vr">count</span>}<span class="c-kw">&lt;/h3&gt;</span>
+      <span class="c-kw">&lt;button</span> <span class="c-vr">onClick</span>={<span class="c-vr">() =&gt; setCount</span>(<span class="c-vr">c =&gt; c + 1</span>)}<span class="c-kw">&gt;</span>+<span class="c-kw">&lt;/button&gt;</span>
+    <span class="c-kw">&lt;/div&gt;</span>
+  );
+}</code></pre>
+                            </div>
+                            <!-- Output Preview -->
+                            <div class="learning-output-box">
+                                <div class="learning-output-header">Live Rendered Component</div>
+                                <div class="learning-output-body">
+                                    <div class="react-counter-container">
+                                        <div style="font-size:0.75rem; text-transform:uppercase; color:var(--accent-orange); font-weight:700; letter-spacing:0.05em; margin-bottom:0.2rem;">React State Hook</div>
+                                        <div class="react-counter-val" id="react-counter-val">0</div>
+                                        <div class="react-counter-btn-row">
+                                            <button class="react-counter-btn" onclick="decrementReactCounter()">-</button>
+                                            <button class="react-counter-btn" onclick="incrementReactCounter()">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated Mockup Image -->
+                        <div class="learning-image-container">
+                            <img src="assets/react_node_mockup.png" alt="React components and Node route map" class="learning-img">
+                            <div class="learning-image-title">Fullstack Components & Routing</div>
+                            <div class="learning-image-caption">Architectural diagram detailing component states syncing with server routing controllers and backend structures.</div>
+                        </div>
+                        
+                        <div class="panel-takeaway-card">
+                            <h5>Key Lesson</h5>
+                            <blockquote>"Integrating server state caching with React Query completely simplified handling asynchronous state synchronization between my client and backend API."</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3d -->
+                <div class="expandable-panel" id="panel-d">
+                    <div class="panel-header" onclick="togglePanel('d')">
+                        <div class="panel-header-title-box">
+                            <div class="panel-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            </div>
+                            <h3>d. Structured Enquiry</h3>
+                        </div>
+                        <svg class="panel-toggle-indicator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    
+                    <div class="panel-body-content">
+                        <ul class="learning-items-list">
+                            <li>Requirement discovery: Practiced turning real user needs into structured software workflows.</li>
+                            <li>Data organization: Practiced converting raw, inconsistent records into clean structured formats.</li>
+                            <li>Systems design: Modeled database relationships, entity maps, and testing protocols.</li>
+                            <li><strong>Applied in:</strong> Writing clearer requirements, diagrams, and testing notes for technical work.</li>
+                        </ul>
+                        
+                        <div class="panel-takeaway-card">
+                            <h5>Key Lesson</h5>
+                            <blockquote>"Bridging real physical catalog workflows with visual database schemes showed me how crucial upfront structural design is before code writing."</blockquote>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 4: PROJECT OVERVIEW PAGE
+             ========================================= -->
+        <section id="page-project-overview" class="portfolio-page">
+            <div class="project-detail-hero">
+                <h3>Digitron Associates</h3>
+                <div class="tagline">CCTV & Security Solutions — Full-Stack E-Commerce Platform</div>
+                
+                <div class="pills-group" style="justify-content:center;">
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">React</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">Vite</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">Express.js</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">MongoDB</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">Prisma ORM</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">JWT</span>
+                    <span class="tech-pill-badge" style="border-color:var(--accent-cyan)">Google OAuth</span>
+                </div>
+
+                
+            </div>
+
+            <div class="project-detail-container">
+                <div class="project-narrative">
+                    <div class="section-header">
+                        <span class="subtitle">Overview</span>
+                        <h2>What is Digitron Associates?</h2>
+                    </div>
+                    
+                        <p class="bio-text-para">
+                        <strong>Digitron Associates</strong> is a real-world e-commerce web application built for a CCTV and security solutions business based in Hubbali, Karnataka. The platform enables customers to browse 400+ security products across 12 categories, compare models, build packages, and contact the store — while an admin portal allows the business owner to manage inventory, products, and site configuration.
+                    </p>
+
+                    <h4 style="font-size:1.4rem; margin-top:2.5rem; margin-bottom:1rem; color:var(--accent-cyan)">Core System Capabilities</h4>
+                    
+                    <div class="core-features-bullet-list">
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>400+ Catalog Items</h5>
+                                <p>Optimized multi-filter layout to scan real-world security parts.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>Detailed Specs & Star Ratings</h5>
+                                <p>Comprehensive spec breakdowns, ratings, and related system parts.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>Bundle Package Builder</h5>
+                                <p>Custom setup calculators to build complete security arrays easily.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>Secure Merchant Center</h5>
+                                <p>Dashboard enabling complete CRUD product tracking and layout variables.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>Dual Auth Framework</h5>
+                                <p>Secure admin log via JWT, with smooth login for customers via Google OAuth.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-bullet-item">
+                            <div class="bullet-icon-sphere">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="feature-bullet-text">
+                                <h5>WhatsApp Contact Links</h5>
+                                <p>Floating trigger containing pre-filled text referring to dynamic products.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="neon-card business-details-card" style="height: fit-content;">
+                    <h4>Store Operations Summary</h4>
+                    <ul class="business-list">
+                        <li><strong>Store Name:</strong> Digitron Associates</li>
+                        <li><strong>Service Scope:</strong> CCTV & High-End Security Solutions</li>
+                        <li><strong>Store Address:</strong> Shop No. 12, Electronics Hub, Lamington Road, Hubbali, Karnataka — 580029</li>
+                        <li><strong>Working Hours:</strong> Mon–Sat: 9:00 AM – 7:00 PM <br>Sunday: 10:00 AM – 4:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div style="margin-top:4rem;">
+                <h3 style="font-size:1.8rem; margin-bottom:1rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">12 Catalog Categories</h3>
+                <p>Digitron Associates maps 400+ physical parts sorted in 12 key security divisions:</p>
+                
+                <div class="categories-grid-box">
+                    <div class="category-cell">
+                        <span class="category-cell-icon">📷</span>
+                        <span class="category-cell-name">Cameras</span>
+                        <span class="category-cell-count">167 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">🖥️</span>
+                        <span class="category-cell-name">DVR</span>
+                        <span class="category-cell-count">32 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">⚙️</span>
+                        <span class="category-cell-name">NVR</span>
+                        <span class="category-cell-count">28 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">🔌</span>
+                        <span class="category-cell-name">Cables & Connectors</span>
+                        <span class="category-cell-count">70 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">🌐</span>
+                        <span class="category-cell-name">Networking</span>
+                        <span class="category-cell-count">35 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">💾</span>
+                        <span class="category-cell-name">Storage</span>
+                        <span class="category-cell-count">52 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">🔨</span>
+                        <span class="category-cell-name">Mounts & Racks</span>
+                        <span class="category-cell-count">16 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">⚡</span>
+                        <span class="category-cell-name">Power Supplies</span>
+                        <span class="category-cell-count">32 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">📺</span>
+                        <span class="category-cell-name">Displays</span>
+                        <span class="category-cell-count">15 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">🛠️</span>
+                        <span class="category-cell-name">Services</span>
+                        <span class="category-cell-count">11 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">🔐</span>
+                        <span class="category-cell-name">Access Control</span>
+                        <span class="category-cell-count">11 Products</span>
+                    </div>
+                    <div class="category-cell">
+                        <span class="category-cell-icon">📦</span>
+                        <span class="category-cell-name">Accessories</span>
+                        <span class="category-cell-count">18 Products</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diagrams Section -->
+            <div style="margin-top:4rem; margin-bottom:5rem;">
+                <h3 style="font-size:1.8rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Project Diagrams & Mockups</h3>
+                <p>The following architectural blueprints map the data patterns and flow maps of the e-commerce layout:</p>
+                
+                <div class="diagram-grid-layout">
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/architecture.png" alt="SecureVision architecture diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">System Architecture Blueprint</span>
+                        <span class="placeholder-subcaption">Layered view of client, application, external services, and data modules.</span>
+                    </div>
+
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/context-diagram.png" alt="SecureVision context diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">System Context Map</span>
+                        <span class="placeholder-subcaption">Main system interactions with customer, admin, database, WhatsApp, email, and catalogue services.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 5: ANALYSIS & REQUIREMENTS PAGE
+             ========================================= -->
+        <section id="page-project-analysis" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">System Engineering</span>
+                <h2>Analysis & Requirements</h2>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1rem;">Problem Statement</h3>
+            <p class="bio-text-para" style="font-size:1.15rem;">
+                Local CCTV businesses in Hubbali had no digital presence. Customers had to visit in person to know product availability and pricing. The owner managed a 400+ SKU inventory in an Excel sheet with no way to share it digitally.
+            </p>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-top:3rem; margin-bottom:1rem;">Stakeholder Taxonomy</h3>
+            <div class="stakeholders-row">
+                <div class="neon-card stakeholder-card">
+                    <span class="stakeholder-card-icon">👔</span>
+                    <h4>Business Owner</h4>
+                    <p>Needs direct inventory tracking, quick SKU adjustments, and visual layouts to capture local Hubbali leads.</p>
+                </div>
+                <div class="neon-card stakeholder-card">
+                    <span class="stakeholder-card-icon">👤</span>
+                    <h4>End Customers</h4>
+                    <p>Demand fast catalog filtering, product specs, dynamic cart building, and quick ways to reach the merchant.</p>
+                </div>
+                <div class="neon-card stakeholder-card">
+                    <span class="stakeholder-card-icon">🔐</span>
+                    <h4>Site Admin</h4>
+                    <p>Requires secure, access-controlled endpoints to execute catalog CRUD items and manage dynamic parameters.</p>
+                </div>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1rem;">Functional Specifications</h3>
+            <div class="glass-table-wrapper">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Target Functional Requirement</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FR1</td>
+                            <td>Browse 400+ products classified in 12 distinct category boards</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR2</td>
+                            <td>Filter options by brand, indoor/outdoor use, and camera resolutions</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR3</td>
+                            <td>Interactive product specs panel with user rating averages</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR4</td>
+                            <td>Cart tracker enabling customized packages calculation</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR5</td>
+                            <td>Protected Merchant Portal and complete CRUD products management</td>
+                            <td><span class="priority-indicator priority-high">High</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR6</td>
+                            <td>Customer login integration utilizing secure Google OAuth credentials</td>
+                            <td><span class="priority-indicator priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR7</td>
+                            <td>Instant WhatsApp trigger sharing product specifications</td>
+                            <td><span class="priority-indicator priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR8</td>
+                            <td>Side-by-side comparison matrices mapping up to 3 individual items</td>
+                            <td><span class="priority-indicator priority-medium">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td>FR9</td>
+                            <td>Global parameters editable dynamically from merchant settings</td>
+                            <td><span class="priority-indicator priority-low">Low</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1rem;">Non-Functional Specifications</h3>
+            <div class="timeline-steps" style="margin-top:2rem; margin-bottom:4rem;">
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">⚡ Performance</h4>
+                    <p>Initial paint of the product catalog should load in under 2 seconds using server caching strategies.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">📈 Scalability</h4>
+                    <p>Architecture supports scaling to thousands of catalog records without affecting browser rendering speeds.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">🔒 Security</h4>
+                    <p>Protected REST controllers utilizing stateless JWT, crypt-hashed passwords, and structured CORS rules.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">📱 Usability</h4>
+                    <p>Responsive design prioritizing mobile viewports, using high contrast styles and accessible inputs.</p>
+                </div>
+            </div>
+
+            <!-- Analysis Diagram Placeholder -->
+            <div style="margin-bottom:5rem;">
+                <h3 style="font-size:1.6rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Requirements Diagram Workspace</h3>
+                <div class="diagram-placeholder-card has-image">
+                    <img src="assets/use-case.png" alt="SecureVision use case diagram" class="project-diagram-image">
+                    <span class="placeholder-headline">Use Case Diagram / Requirements Flow</span>
+                    <span class="placeholder-subcaption">Visitor and admin actions mapped to core requirements.</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 6: SYSTEM DESIGN PAGE
+             ========================================= -->
+        <section id="page-project-design" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Architectural Blueprint</span>
+                <h2>System Design</h2>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Architecture Block Map</h3>
+            <div class="architecture-grid">
+                <div class="arch-block-card">
+                    <div class="arch-block-title">Frontend Client</div>
+                    <p style="font-size:0.95rem;">React SPA, modular component state orchestration, Vite HMR, and Tailwind UI elements.</p>
+                </div>
+                <div class="arch-block-card">
+                    <div class="arch-block-title">Backend API</div>
+                    <p style="font-size:0.95rem;">REST API routing, Passport middleware controllers, and token routers.</p>
+                </div>
+                <div class="arch-block-card">
+                    <div class="arch-block-title">Prisma Connector</div>
+                    <p style="font-size:0.95rem;">Object-relational connector generating secure database queries.</p>
+                </div>
+                <div class="arch-block-card">
+                    <div class="arch-block-title">Database Storage</div>
+                    <p style="font-size:0.95rem;">MongoDB Atlas storing unstructured specs lists and inventory datasets.</p>
+                </div>
+            </div>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1rem;">Tech Stack Decision Rationale</h3>
+            <div class="glass-table-wrapper">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>Technology Choice</th>
+                            <th>Architectural Motivation & Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>React + Vite</strong></td>
+                            <td>Delivers rapid Hot Module Replacement (HMR), components encapsulation, and efficient DOM renders.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Express.js</strong></td>
+                            <td>Provides a lightweight, unopinionated routing layer to construct API responses rapidly.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MongoDB</strong></td>
+                            <td>Flexible document model seamlessly maps varied specifications of diverse security equipment.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prisma ORM</strong></td>
+                            <td>Type-safe query compilation, simple schema files, and automated database transitions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>React Query</strong></td>
+                            <td>Performs declarative background caching and avoids redundant client network fetch loops.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stateless JWT</strong></td>
+                            <td>Enables lightweight validation headers without demanding storage access operations on the server.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google OAuth 2.0</strong></td>
+                            <td>Provides quick sign-in capabilities, removing purchase friction for CCTV customers.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Database Collections -->
+            <div style="margin-top:4rem; margin-bottom:4rem;">
+                <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Database Collections & Fields</h3>
+                <div class="timeline-steps">
+                    <div class="neon-card">
+                        <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">🛒 products</h4>
+                        <p style="font-size:0.95rem;">id, name, brand, category, specs (JSON), images, price, stock, ratings</p>
+                    </div>
+                    <div class="neon-card">
+                        <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">⭐ reviews</h4>
+                        <p style="font-size:0.95rem;">productId, rating, comment, authorName, timestamp</p>
+                    </div>
+                    <div class="neon-card">
+                        <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">👥 users</h4>
+                        <p style="font-size:0.95rem;">email, googleId, name, role (Customer/Admin), joinedDate</p>
+                    </div>
+                    <div class="neon-card">
+                        <h4 style="color:var(--accent-cyan); margin-bottom:0.5rem;">📦 bundles</h4>
+                        <p style="font-size:0.95rem;">name, products[], totalPrice, description, activeStatus</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Design Placeholders -->
+            <div style="margin-top:4rem; margin-bottom:5rem;">
+                <h3 style="font-size:1.6rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Structural Diagrams Workspace</h3>
+                
+                <div class="diagram-grid-layout">
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/architecture.png" alt="Layered architecture diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">Detailed Architecture Pipeline</span>
+                        <span class="placeholder-subcaption">System modules arranged by client, app, service, and data layers.</span>
+                    </div>
+
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/activity-diagram.png" alt="Activity diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">Activity Flow</span>
+                        <span class="placeholder-subcaption">Visitor, system, admin, and external-service workflow.</span>
+                    </div>
+
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/whatsapp-sequence.png" alt="WhatsApp integration sequence diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">WhatsApp Integration Sequence</span>
+                        <span class="placeholder-subcaption">Pre-filled enquiry flow from browser UI to WhatsApp.</span>
+                    </div>
+
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/repository-structure.jpeg" alt="Repository structure diagram" class="project-diagram-image">
+                        <span class="placeholder-headline">Repository Structure</span>
+                        <span class="placeholder-subcaption">Frontend, backend, database, docs, and root-level structure.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 7: IMPLEMENTATION PAGE
+             ========================================= -->
+        <section id="page-project-implementation" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Development Log</span>
+                <h2>Implementation</h2>
+            </div>
+
+            <!-- Highlights -->
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Development Highlights</h3>
+            <div class="highlights-grid">
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.8rem;">📦 Optimized Filter Engine</h4>
+                    <p>Designed a custom Multi-Filter engine using React's `useMemo` that evaluates 400+ security parts instantly across multiple parameters — without importing bulky external library assets.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.8rem;">⚙️ Admin Portal Operations</h4>
+                    <p>Engineered full CRUD logic allowing the store owner to add products, modify pricing, and alter core contact and operating hours details in real-time, instantly saving to MongoDB.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.8rem;">📊 Data Migration Automation</h4>
+                    <p>Wrote an asynchronous Node.js utility that parsed unstructured product sheets (400+ SKU lines) and transformed the records into structured, database-compatible JSON records.</p>
+                </div>
+                <div class="neon-card">
+                    <h4 style="color:var(--accent-cyan); margin-bottom:0.8rem;">💬 Dynamic WhatsApp Linker</h4>
+                    <p>Programmed a float button that auto-generates custom texts, linking a client's specific model parameters to the store owner's chat dashboard.</p>
+                </div>
+            </div>
+
+            <!-- Code Editor Component -->
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:0.5rem;">Featured Code Snippet</h3>
+            <p>A look at the custom multi-filter solution powering the product catalog:</p>
+            
+            <div class="code-editor-mockup">
+                <div class="editor-header-bar">
+                    <div class="editor-dots">
+                        <span class="editor-dot dot-red"></span>
+                        <span class="editor-dot dot-yellow"></span>
+                        <span class="editor-dot dot-green"></span>
+                    </div>
+                    <span class="editor-title">ProductFilterEngine.js</span>
+                </div>
+                <pre class="editor-pre-content"><code class="editor-code-body"><span class="c-cm">// Custom multi-criteria evaluation routine (optimized for 400+ SKUs)</span>
+<span class="c-kw">const</span> <span class="c-vr">filteredProducts</span> = <span class="c-fn">useMemo</span>(() => {
+  <span class="c-kw">return</span> <span class="c-vr">products</span>.<span class="c-fn">filter</span>(<span class="c-vr">product</span> => {
+    <span class="c-kw">const</span> <span class="c-vr">matchesCategory</span> = !<span class="c-vr">filters</span>.<span class="c-vr">category</span> || <span class="c-vr">product</span>.<span class="c-vr">category</span> === <span class="c-vr">filters</span>.<span class="c-vr">category</span>;
+    <span class="c-kw">const</span> <span class="c-vr">matchesBrand</span>    = !<span class="c-vr">filters</span>.<span class="c-vr">brand</span>    || <span class="c-vr">product</span>.<span class="c-vr">brand</span> === <span class="c-vr">filters</span>.<span class="c-vr">brand</span>;
+    <span class="c-kw">const</span> <span class="c-vr">matchesType</span>     = !<span class="c-vr">filters</span>.<span class="c-vr">type</span>     || <span class="c-vr">product</span>.<span class="c-vr">type</span> === <span class="c-vr">filters</span>.<span class="c-vr">type</span>;
+    <span class="c-kw">const</span> <span class="c-vr">matchesResolution</span> = !<span class="c-vr">filters</span>.<span class="c-vr">res</span>    || <span class="c-vr">product</span>.<span class="c-vr">resolution</span> === <span class="c-vr">filters</span>.<span class="c-vr">res</span>;
+    
+    <span class="c-kw">return</span> <span class="c-vr">matchesCategory</span> && <span class="c-vr">matchesBrand</span> && <span class="c-vr">matchesType</span> && <span class="c-vr">matchesResolution</span>;
+  });
+}, [<span class="c-vr">products</span>, <span class="c-vr">filters</span>]);</code></pre>
+            </div>
+
+            <!-- Sprint History -->
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Sprint History</h3>
+            <div class="timeline-vertical">
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 1</span>
+                        <h4>Vite Configuration & Layout Mockups</h4>
+                        <p>Constructed the project architecture, set up the React client routing, and drafted initial mock viewports.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 2</span>
+                        <h4>Catalog Migration & Prisma Sync</h4>
+                        <p>Drafted raw database collections, structured Prisma database schema mapping, and executed seed scripts to load 400+ SKU records.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 3</span>
+                        <h4>Core Storefront & Multi-Filters Layout</h4>
+                        <p>Programmed product list matrices, filter bars, detailed spec overlays, and the dynamic sidebar search panels.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 4</span>
+                        <h4>Merchant CRUD Controllers & settings</h4>
+                        <p>Programmed security barriers and inventory panels, allowing complete CRUD editing of products.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 5</span>
+                        <h4>Session Gates & Dual Auth Hooks</h4>
+                        <p>Programmed secure JWT token structures for admin endpoints, and configured Google OAuth 2.0 customer hooks.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 6</span>
+                        <h4>Package Calculator & Review System</h4>
+                        <p>Programmed custom bundle configuration panels, comparison tables, and local review compilation fields.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone">
+                    <div class="timeline-milestone-bullet"></div>
+                    <div class="timeline-milestone-content">
+                        <span class="timeline-milestone-date">Sprint 7</span>
+                        <h4>Load Testing & Server Launch</h4>
+                        <p>Performed system optimization checks, resolved viewport adjustments, and launched code targets on Vercel and Railway host lines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementation Screenshots Grid -->
+            <div style="margin-top:4rem; margin-bottom:5rem;">
+                <h3 style="font-size:1.6rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Production Platform Interface</h3>
+                <p style="margin-bottom:2rem; color:var(--text-muted);">
+                    Below are the high-fidelity user interface captures demonstrating the end-to-end functionality of the deployed e-commerce platform:
+                </p>
+                <div class="screenshot-grid">
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 112922.png" alt="Home Page Hero Section" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>1. Landing & Brand Identity</h5>
+                            <p>Premium dark-tech storefront hero section featuring security value proposition.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 112937.png" alt="CCTV Product Catalog" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>2. Structured Product Catalog</h5>
+                            <p>E-commerce grid listing curated CCTV models and peripheral hardware.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113004.png" alt="Product Filter & Search" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>3. Custom Multi-Criteria Filter</h5>
+                            <p>Dynamic client-side sorting and filtering by resolution, brand, and type.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113012.png" alt="Product Comparison Matrix" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>4. Model Comparison Engine</h5>
+                            <p>Side-by-side spec comparison tool for evaluating camera resolutions and features.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113026.png" alt="Shopping Cart & Enquiry" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>5. Shopping Cart & Enquiry Details</h5>
+                            <p>Itemized selection with dynamic price calculation and enquiry compilation.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113308.png" alt="WhatsApp Chat Redirection" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>6. WhatsApp Link Dispatch</h5>
+                            <p>Instant chat redirection populated with structured cart models for store query.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113321.png" alt="Admin Authentication Portal" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>7. Secure Admin Portal Gateway</h5>
+                            <p>Credential validation gate protecting access to merchant inventory management.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113347.png" alt="Admin Dashboard Overview" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>8. Merchant Operations Dashboard</h5>
+                            <p>Secure control center displaying inventory stats and catalog options.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113357.png" alt="Admin Product Inventory" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>9. Catalog Inventory Control</h5>
+                            <p>Add, edit, or archive operations directly linked to the application database.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113405.png" alt="Admin Product Editor" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>10. Dynamic Product Specification Editor</h5>
+                            <p>Granular form interface for tweaking individual camera configurations.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113413.png" alt="Product Review Interface" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>11. User Feedback & Reviews</h5>
+                            <p>Interactive ratings system for logging verified user product evaluations.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-card" onclick="openLightbox(this)">
+                        <div class="screenshot-image-wrapper">
+                            <img src="assets/Screenshot 2026-06-05 113422.png" alt="Bundle Package Builder" class="screenshot-img">
+                        </div>
+                        <div class="screenshot-info">
+                            <h5>12. Security Bundle Configurator</h5>
+                            <p>Pre-packaged security system setups matching typical store customer budgets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 8: TESTING PAGE
+             ========================================= -->
+        <section id="page-project-testing" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">System Verification</span>
+                <h2>Testing & Diagnostics</h2>
+            </div>
+
+            <p class="bio-text-para">
+                Testing for Digitron Associates covered functional testing, API testing (Postman), and manual UI/UX testing across devices.
+            </p>
+
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-top:2.5rem; margin-bottom:1rem;">Testing Log</h3>
+            
+            <div class="glass-table-wrapper">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Feature Tested</th>
+                            <th>Verification Steps</th>
+                            <th>Expected Behavior</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TC01</td>
+                            <td>Product Filter</td>
+                            <td>Filter by "Cameras" category</td>
+                            <td>Only camera products shown</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC02</td>
+                            <td>Admin Login</td>
+                            <td>Correct credentials</td>
+                            <td>JWT issued, admin dashboard visible</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC03</td>
+                            <td>Admin Login</td>
+                            <td>Wrong password</td>
+                            <td>401 Unauthorized error</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC04</td>
+                            <td>Google OAuth</td>
+                            <td>Click "Login with Google"</td>
+                            <td>Redirects to Google, returns user</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC05</td>
+                            <td>Cart</td>
+                            <td>Add product to cart</td>
+                            <td>Cart count increments, item appears</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC06</td>
+                            <td>Product Detail</td>
+                            <td>Navigate to product</td>
+                            <td>Specs, ratings, images load</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC07</td>
+                            <td>Compare</td>
+                            <td>Add 3 products to compare</td>
+                            <td>Side-by-side spec table shown</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC08</td>
+                            <td>Admin CRUD</td>
+                            <td>Edit product price</td>
+                            <td>New price reflected on product page</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC09</td>
+                            <td>Mobile Responsive</td>
+                            <td>Open on 375px viewport</td>
+                            <td>Navbar collapses, layout adjusts</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                        <tr>
+                            <td>TC10</td>
+                            <td>WhatsApp CTA</td>
+                            <td>Click WhatsApp button</td>
+                            <td>Opens WhatsApp with pre-filled message</td>
+                            <td><strong class="accent-lime-text">✅ Pass</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Bugs and fixes -->
+            <h3 style="font-size:1.6rem; color:var(--accent-orange); margin-bottom:1.5rem;">Defect Management Log</h3>
+            <div class="bugs-grid">
+                <div class="neon-card bug-card">
+                    <span class="bug-card-icon">🐞</span>
+                    <h4>Filter State Retention Defect</h4>
+                    <p><strong>Bug:</strong> Active filter parameters were not resetting when switching categories, displaying blank cells.<br><strong>Solution:</strong> Embedded cleanup dispatch handlers inside React's `useEffect` hooks.</p>
+                </div>
+                <div class="neon-card bug-card">
+                    <span class="bug-card-icon">🐞</span>
+                    <h4>MongoDB Cold-Start Failure</h4>
+                    <p><strong>Bug:</strong> Server database connections would periodically timeout on cold environment starts.<br><strong>Solution:</strong> Appended optimized `serverSelectionTimeoutMS` variables inside database connection configurations.</p>
+                </div>
+                <div class="neon-card bug-card">
+                    <span class="bug-card-icon">🐞</span>
+                    <h4>JWT Expiry Unhandled Crash</h4>
+                    <p><strong>Bug:</strong> Admin authentication tokens expiring without notice caused raw network failure messages.<br><strong>Solution:</strong> Programmed Axios token interceptors executing an automatic routing to the login interface upon 401 returns.</p>
+                </div>
+            </div>
+
+            <!-- Diagnostics Placeholders -->
+            <div style="margin-top:4rem; margin-bottom:5rem;">
+                <h3 style="font-size:1.6rem; margin-bottom:1.5rem; border-left:4px solid var(--accent-orange); padding-left:1rem;">Diagnostic Diagrams Workspace</h3>
+                <div class="diagram-grid-layout">
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/test-matrix-1.png" alt="Testing matrix part one" class="project-diagram-image">
+                        <span class="placeholder-headline">Testing Matrix - Catalogue & Bundles</span>
+                        <span class="placeholder-subcaption">Product display, image visibility, specifications, filters, and bundle checks.</span>
+                    </div>
+                    <div class="diagram-placeholder-card has-image">
+                        <img src="assets/test-matrix-2.png" alt="Testing matrix part two" class="project-diagram-image">
+                        <span class="placeholder-headline">Testing Matrix - Comparison & WhatsApp</span>
+                        <span class="placeholder-subcaption">Comparison, best-for tags, WhatsApp redirection, pre-filled enquiries, and detail page checks.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 9: CERTIFICATION PAGE
+             ========================================= -->
+        <section id="page-certification" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Milestones</span>
+                <h2>Certifications & Achievements</h2>
+            </div>
+            
+            <p class="bio-text-para">
+                I actively pursue technical certifications to validate my knowledge in cloud technologies, core programming, and modern engineering practices.
+            </p>
+
+            <div class="certificate-single-container" style="max-width: 800px; margin: 3rem auto; text-align: center;">
+                <div class="neon-card screenshot-card" onclick="openLightbox(this)" style="cursor: pointer; transition: transform 0.3s ease; display: block; overflow: hidden; border-radius: 16px;">
+                    <div class="screenshot-image-wrapper" style="overflow: hidden; border-radius: 12px 12px 0 0; background: #0f172a; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                        <img src="assets/certificate.png" alt="DevOps Basics for Everyone Certificate" class="screenshot-img" style="max-width: 100%; height: auto; max-height: 480px; object-fit: contain; border-radius: 8px;">
+                    </div>
+                    <div class="screenshot-info" style="padding: 1.5rem 2rem; text-align: left; background-color: var(--bg-card);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                            <h5 style="margin: 0; font-size: 1.4rem; font-family: var(--font-heading); color: var(--text-primary);">DevOps Basics for Everyone</h5>
+                            <span class="cert-status-badge status-completed" style="font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.8rem; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.05em; background-color: rgba(127, 255, 0, 0.12); color: var(--accent-lime); border: 1px solid rgba(127,255,0,0.25);">Completed</span>
+                        </div>
+                        <p class="provider" style="font-size: 1rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.8rem;">IBM (via edX)</p>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                            Verified professional certificate demonstrating fundamental competencies in DevOps concepts, Continuous Integration/Continuous Deployment (CI/CD) pipelines, containerization mechanics, agile development methodologies, and cloud-native application setups.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             PAGE 10: REFLECTIONS PAGE
+             ========================================= -->
+        <section id="page-reflections" class="portfolio-page">
+            <div class="section-header">
+                <span class="subtitle">Retrospective</span>
+                <h2>Key Reflections</h2>
+            </div>
+
+            <p class="learning-intro-para">
+                Building a complete project case study was one of the most challenging and rewarding parts of my engineering journey so far. It taught me how to think beyond code and communicate decisions clearly.
+            </p>
+
+            <div class="reflections-masonry">
+                
+                <div class="neon-card reflection-masonry-card">
+                    <div class="reflection-card-number">01</div>
+                    <h4 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-orange);">🤝 Collaborative Coding beats Solo Dev</h4>
+                    <p>Working in a team of five (Goureesh, Ashutosh, Yashwant, Anoosha, and myself) taught me the value of delegation, alignment, and source control. Building different modules of the CCTV platform required clear interfaces and mutual trust.</p>
+                    <div class="reflection-quote-block">
+                        <p>"Software engineering is a team sport; code is only as clean as the team's communication."</p>
+                    </div>
+                </div>
+
+                <div class="neon-card reflection-masonry-card">
+                    <div class="reflection-card-number">02</div>
+                    <h4 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-orange);">🔌 Bridging Frontend & Backend Logic</h4>
+                    <p>Connecting React state flows to an Express backend was a massive learning loop. Understanding how database queries, middleware security gates, and REST controllers interact has shifted my perspective to system-level thinking.</p>
+                    <div class="reflection-quote-block">
+                        <p>"An interface is just a window; the real magic happens in the data pipeline behind it."</p>
+                    </div>
+                </div>
+
+                <div class="neon-card reflection-masonry-card">
+                    <div class="reflection-card-number">03</div>
+                    <h4 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-orange);">💾 Seeding Workflows & Database Sync</h4>
+                    <p>Managing product seeding files containing over 400 lines of CCTV catalog components forced me to learn schema normalization, migration safety, and how to verify backend database connections early on.</p>
+                    <div class="reflection-quote-block">
+                        <p>"Design schemas for tomorrow's queries, but parse files for today's database seeds."</p>
+                    </div>
+                </div>
+
+                <div class="neon-card reflection-masonry-card" style="grid-column: span 2;">
+                    <div class="reflection-card-number">04</div>
+                    <h4 style="font-size:1.2rem; margin-bottom:0.5rem; color:var(--accent-orange);">⏱️ Agile Sprints & Incremental Slices</h4>
+                    <p>Splitting our work into Sprints made the project highly manageable. We learned to ship incremental working features, debug them in parallel, and continuously review progress together during team standups.</p>
+                    <div class="reflection-quote-block">
+                        <p>"Sprints divide complex backlogs into measurable checkpoints of working software."</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-portfolio">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#home" class="footer-link-anchor" onclick="navigateTo('home')">Home</a></li>
+                <li><a href="#about" class="footer-link-anchor" onclick="navigateTo('about')">About Me</a></li>
+                <li><a href="#learning" class="footer-link-anchor" onclick="navigateTo('learning')">Learning</a></li>
+                <li><a href="#project-overview" class="footer-link-anchor" onclick="navigateTo('project-overview')">Project Overview</a></li>
+            </ul>
+            <p>© 2026 Atharva · KLE Technological University · CS Engineering</p>
+            <p style="font-size:0.8rem; margin-top:0.4rem; color:var(--text-muted);">Crafted with Vanilla Javascript & Bold tech-aesthetics.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/911234567890?text=Hi%20Atharva,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" class="whatsapp-floating-widget" aria-label="Quick Contact on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.747 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.632-1.023-5.105-2.887-6.97C16.508 1.968 14.037.943 11.41.942 5.972.942 1.548 5.363 1.545 10.796c-.002 1.764.482 3.486 1.398 5.015L1.97 21.037l5.209-1.365-.532-.518z"/>
+        </svg>
+    </a>
+
+    <!-- Back to Top Widget -->
+    <button id="back-to-top" class="back-to-top-widget" aria-label="Scroll back to top">
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </button>
+
+    <!-- Core Scripts Router & Particle Canvas Background -->
+    <script>
+        /* =========================================
+           1. CLIENT-SIDE HASH ROUTING CONTROLLER
+           ========================================= */
+        const projectSubpages = ['project-overview', 'project-analysis', 'project-design', 'project-implementation', 'project-testing'];
+
+        function updateProjectSubnav(pageId) {
+            document.querySelectorAll('.project-subnav a').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + pageId);
+            });
+        }
+
+        function initProjectSubnav() {
+            const projectNavMarkup = `
+                <nav class="project-subnav" aria-label="Project page navigation">
+                    <a href="#project-overview">Overview</a>
+                    <a href="#project-analysis">Analysis</a>
+                    <a href="#project-design">System Design</a>
+                    <a href="#project-implementation">Implementation</a>
+                    <a href="#project-testing">Testing</a>
+                </nav>
+            `;
+
+            projectSubpages.forEach(pageId => {
+                const page = document.getElementById('page-' + pageId);
+                if (page && !page.querySelector('.project-subnav')) {
+                    page.insertAdjacentHTML('afterbegin', projectNavMarkup);
+                }
+            });
+        }
+
+        function setupHashLinks() {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', event => {
+                    const pageId = link.getAttribute('href').substring(1);
+                    const target = document.getElementById('page-' + pageId);
+
+                    if (target) {
+                        event.preventDefault();
+                        window.location.hash = pageId;
+                        navigateTo(pageId);
+                    }
+                });
+            });
+        }
+
+        function navigateTo(pageId) {
+            // Close mobile menu first if open
+            document.getElementById('nav-menu').classList.remove('mobile-open');
+            
+            // Hide all views
+            const pages = document.querySelectorAll('.portfolio-page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show active target
+            const activePage = document.getElementById('page-' + pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+
+            // Update navbar items
+            const navLinks = document.querySelectorAll('.nav-link, .dropdown-item');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Mark active element
+            const activeLink = document.getElementById('link-' + pageId);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Handle Project Dropdown trigger highlighting
+            const projectTrigger = document.getElementById('project-dropdown-trigger');
+            if (projectSubpages.includes(pageId)) {
+                projectTrigger.classList.add('active');
+            } else {
+                projectTrigger.classList.remove('active');
+            }
+
+            // Scroll cleanly to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Trigger Count-Up stats if switching to home page
+            if (pageId === 'home') {
+                setTimeout(initCountUp, 300);
+            }
+
+            updateProjectSubnav(pageId);
+        }
+
+        // Router listener routing dynamic window hashes
+        function handleRouting() {
+            const hash = window.location.hash.substring(1);
+            const validPages = ['home', 'about', 'learning', 'project-overview', 'project-analysis', 'project-design', 'project-implementation', 'project-testing', 'certification', 'reflections'];
+            
+            if (validPages.includes(hash)) {
+                navigateTo(hash);
+            } else {
+                navigateTo('home');
+                window.location.hash = 'home';
+            }
+        }
+
+        window.addEventListener('hashchange', handleRouting);
+        window.addEventListener('DOMContentLoaded', () => {
+            initProjectSubnav();
+            setupHashLinks();
+            handleRouting();
+        });
+
+        /* =========================================
+           2. INTERACTIVE HEADER & MOBILE ACCENTS
+           ========================================= */
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            const topBtn = document.getElementById('back-to-top');
+            
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 400) {
+                topBtn.classList.add('visible');
+            } else {
+                topBtn.classList.remove('visible');
+            }
+        });
+
+        // Mobile Hamburger Toggle
+        const hamburger = document.getElementById('menu-hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('mobile-open');
+        });
+
+        // Scroll back to top trigger
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* =========================================
+           INTERACTIVE DEMOS FOR LEARNING PAGE
+           ========================================= */
+        function runJavaScriptDemo() {
+            const consoleBox = document.getElementById('js-console-output');
+            consoleBox.innerHTML = '';
+            
+            // Add lines mimicking compiler/execution
+            const lines = [
+                { text: '> Initializing compiler runtime...', type: 'info' },
+                { text: '> Array team loaded with 2 elements.', type: 'info' },
+                { text: '> Running team.filter(member => member.role === "Lead")...', type: 'info' },
+                { text: 'Match: Atharva', type: 'success' },
+                { text: 'Script exited successfully with status 0.', type: 'info' }
+            ];
+            
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    const lineEl = document.createElement('div');
+                    lineEl.className = 'console-line ' + (line.type === 'success' ? 'console-line-success' : line.type === 'info' ? 'console-line-info' : '');
+                    lineEl.innerText = line.text;
+                    consoleBox.appendChild(lineEl);
+                }, index * 400);
+            });
+        }
+        
+        let reactCounterStateVal = 0;
+        function incrementReactCounter() {
+            reactCounterStateVal++;
+            document.getElementById('react-counter-val').innerText = reactCounterStateVal;
+        }
+        function decrementReactCounter() {
+            reactCounterStateVal--;
+            document.getElementById('react-counter-val').innerText = reactCounterStateVal;
+        }
+
+        /* =========================================
+           3. INTERACTIVE ACCORDIONS (LEARNINGS)
+           ========================================= */
+        function togglePanel(panelId) {
+            const panel = document.getElementById('panel-' + panelId);
+            const activeStatus = panel.classList.contains('active');
+            
+            // Collapse all panels first
+            const allPanels = document.querySelectorAll('.expandable-panel');
+            allPanels.forEach(p => p.classList.remove('active'));
+            
+            // Expand clicked panel if it wasn't open
+            if (!activeStatus) {
+                panel.classList.add('active');
+            }
+        }
+
+        /* =========================================
+           4. VISUAL STATISTICS COUNT-UP EFFECT
+           ========================================= */
+        let countUpExecuted = false;
+        function initCountUp() {
+            if (countUpExecuted) return;
+            const stats = document.querySelectorAll('.stat-number-label[data-target]');
+            
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'), 10);
+                const isPlus = stat.innerText.includes('+');
+                let count = 0;
+                const increment = Math.ceil(target / 50);
+                const timer = setInterval(() => {
+                    count += increment;
+                    if (count >= target) {
+                        count = target;
+                        clearInterval(timer);
+                    }
+                    stat.innerText = count + (isPlus ? '+' : '');
+                }, 30);
+            });
+            countUpExecuted = true;
+        }
+
+        /* =========================================
+           5. INTERACTIVE SCHEMATIC CANVAS BACKGROUND
+           ========================================= */
+        const canvas = document.getElementById('circuit-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        class Node {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.baseX = x;
+                this.baseY = y;
+                this.radius = Math.random() * 2 + 1.5;
+                this.pulse = Math.random() * Math.PI;
+                this.speed = 0.02;
+            }
+
+            draw() {
+                this.pulse += this.speed;
+                const alpha = 0.15 + Math.sin(this.pulse) * 0.08;
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius + Math.sin(this.pulse) * 0.8, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 212, 255, ${alpha})`;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(0, 212, 255, 0.4)';
+                ctx.fill();
+                ctx.shadowBlur = 0; // Reset blur
+            }
+
+            update() {
+                // Subtle organic floating movement
+                this.x = this.baseX + Math.sin(this.pulse) * 4;
+                this.y = this.baseY + Math.cos(this.pulse) * 4;
+            }
+        }
+
+        const nodesList = [];
+        const maxNodes = 65;
+
+        // Generate grid-like nodes mirroring circuit points
+        for (let i = 0; i < maxNodes; i++) {
+            nodesList.push(new Node(
+                Math.random() * width,
+                Math.random() * height
+            ));
+        }
+
+        function drawConnections() {
+            ctx.strokeStyle = 'rgba(0, 212, 255, 0.035)';
+            ctx.lineWidth = 1;
+            
+            for (let i = 0; i < nodesList.length; i++) {
+                for (let j = i + 1; j < nodesList.length; j++) {
+                    const dist = Math.hypot(nodesList[i].x - nodesList[j].x, nodesList[i].y - nodesList[j].y);
+                    
+                    if (dist < 180) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodesList[i].x, nodesList[i].y);
+                        
+                        // Trace orthogonal line segments resembling PCB wires
+                        const midX = (nodesList[i].x + nodesList[j].x) / 2;
+                        ctx.lineTo(midX, nodesList[i].y);
+                        ctx.lineTo(midX, nodesList[j].y);
+                        ctx.lineTo(nodesList[j].x, nodesList[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateBgCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            
+            drawConnections();
+            
+            nodesList.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            
+            requestAnimationFrame(animateBgCanvas);
+        }
+
+        animateBgCanvas();
+
+        /* =========================================
+           6. INTERACTIVE SCREENSHOT LIGHTBOX
+           ========================================= */
+        window.openLightbox = function(element) {
+            const lightbox = document.getElementById('image-lightbox');
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            
+            const cardImg = element.querySelector('.screenshot-img');
+            const cardTitle = element.querySelector('.screenshot-info h5').innerText;
+            const cardDesc = element.querySelector('.screenshot-info p').innerText;
+
+            img.src = cardImg.src;
+            caption.innerHTML = `<span style="color:var(--accent-cyan); font-weight:700;">${cardTitle}</span> &middot; <span style="color:var(--text-secondary); font-size:1rem;">${cardDesc}</span>`;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Disable background scrolling
+        }
+
+        window.closeLightbox = function() {
+            const lightbox = document.getElementById('image-lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+    </script>
+
+    <!-- Lightbox Modal -->
+    <div id="image-lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged screenshot view">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
