@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -167,7 +167,8 @@
         .avatar-circle-gnd::before { content: ''; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid var(--accent-primary); animation: spinCircle 20s linear infinite; }
         @keyframes spinCircle { 100% { transform: rotate(360deg); } }
         .avatar-caption-note { font-size: 0.85rem; color: var(--text-muted); text-align: center; display: block; margin-top: 0.8rem; font-style: italic; }
-        .profile-photo-card { display: none; }
+        .profile-photo-card { display: block; width: 160px; height: 160px; margin: 0 auto 1rem; border-radius: 50%; overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.4); }
+        .profile-photo-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
         
         .about-summary-block { text-align: center; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; margin-bottom: 2rem; }
         .about-summary-block h3 { font-size: 1.5rem; margin-bottom: 0.3rem; }
@@ -528,6 +529,9 @@
             
             <div class="about-main-flex">
                 <div class="neon-card">
+                    <div class="profile-photo-card">
+                        <img src="assets/profile.jpg" alt="Profile photo of Atharva">
+                    </div>
                     <div class="about-summary-block">
                         <h3>Atharva</h3>
                         <p>BTech Computer Science</p>
@@ -1769,7 +1773,8 @@
             <div class="certificate-single-container" style="max-width: 800px; margin: 3rem auto; text-align: center;">
                 <div class="neon-card screenshot-card" onclick="openLightbox(this)" style="cursor: pointer; transition: transform 0.3s ease; display: block; overflow: hidden; border-radius: 16px;">
                     <div class="screenshot-image-wrapper" style="overflow: hidden; border-radius: 12px 12px 0 0; background: #0f172a; display: flex; align-items: center; justify-content: center; padding: 1rem;">
-                        <img src="assets /certificate.png" alt="DevOps Basics for Everyone Certificate" class="screenshot-img" style="max-width: 100%; height: auto; max-height: 480px; object-fit: contain; border-radius: 8px;">
+                        <img src="assets/certificate.png" alt="DevOps Basics for Everyone Certificate" class="screenshot-img" style="max-width: 100%; height: auto; max-height: 480px; object-fit: contain; border-radius: 8px;">
+                    </div>
                     <div class="screenshot-info" style="padding: 1.5rem 2rem; text-align: left; background-color: var(--bg-card);">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
                             <h5 style="margin: 0; font-size: 1.4rem; font-family: var(--font-heading); color: var(--text-primary);">DevOps Basics for Everyone</h5>
